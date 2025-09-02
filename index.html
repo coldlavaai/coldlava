@@ -1433,6 +1433,34 @@
                 cursor: auto;
                 background: linear-gradient(180deg, rgba(10, 10, 51, 1) 0%, rgba(26, 26, 74, 1) 100%);
             }
+
+            /* Force all content to be visible on mobile */
+            * {
+                opacity: 1 !important;
+                visibility: visible !important;
+            }
+
+            /* Override any hidden elements */
+            .hero, 
+            .hero-content, 
+            .hero-title, 
+            .hero-subtitle, 
+            .hero-description, 
+            .hero-cta, 
+            .service-preview, 
+            .services-wrapper,
+            .service-preview-card {
+                opacity: 1 !important;
+                transform: none !important;
+                animation: none !important;
+                visibility: visible !important;
+                display: flex !important;
+            }
+
+            .service-preview-card {
+                display: flex !important;
+                flex-direction: column !important;
+            }
             
             /* Remove all performance-heavy elements */
             .luxury-cursor,
@@ -1454,6 +1482,9 @@
             .navbar {
                 padding: 0.8rem 0;
                 backdrop-filter: blur(10px);
+                position: fixed;
+                top: 0;
+                z-index: 1000;
             }
 
             .nav-container {
@@ -1479,32 +1510,51 @@
 
             /* Mobile-optimized typography */
             .hero {
-                padding: 6rem 1rem 4rem;
-                min-height: 90vh;
+                padding: 5rem 1rem 2rem;
+                min-height: 100vh;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+
+            .hero-content {
+                opacity: 1 !important;
+                transform: none !important;
+                animation: none !important;
+                visibility: visible !important;
             }
 
             .hero-title {
                 font-size: 2.5rem;
                 line-height: 1.1;
                 margin-bottom: 1.5rem;
-                animation: none;
+                animation: none !important;
+                opacity: 1 !important;
+                transform: none !important;
                 background: linear-gradient(45deg, #ffffff, #02bbd4);
                 -webkit-background-clip: text;
                 background-clip: text;
+                -webkit-text-fill-color: transparent;
             }
 
             .hero-subtitle {
                 font-size: 0.9rem;
                 letter-spacing: 2px;
                 margin-bottom: 1.5rem;
-                animation: none;
+                animation: none !important;
+                opacity: 1 !important;
+                transform: none !important;
+                color: var(--accent-blue);
             }
 
             .hero-description {
                 font-size: 1rem;
                 letter-spacing: 1px;
                 margin-bottom: 3rem;
-                animation: none;
+                animation: none !important;
+                opacity: 1 !important;
+                transform: none !important;
+                color: var(--text-gray);
             }
 
             .hero-cta {
@@ -1512,18 +1562,24 @@
                 align-items: center;
                 gap: 1rem;
                 margin-bottom: 3rem;
-                animation: none;
+                animation: none !important;
+                opacity: 1 !important;
+                transform: none !important;
             }
 
             .cta-button {
                 width: 280px;
                 padding: 0.9rem 2rem;
                 font-size: 1rem;
+                opacity: 1 !important;
+                transform: none !important;
             }
 
             /* Mobile service preview cards */
             .service-preview {
-                animation: none;
+                animation: none !important;
+                opacity: 1 !important;
+                transform: none !important;
             }
 
             .services-wrapper {
@@ -2310,26 +2366,27 @@
             addMagneticEffect(); 
             addInteractiveBackground();
             
-            // Mobile: Show elements immediately, Desktop: Staggered animation
+            // Mobile: Show ALL elements immediately, Desktop: Staggered animation
             setTimeout(() => {
-                document.querySelectorAll('.fade-in').forEach((el, index) => {
-                    if (shouldDisableAnimations) {
-                        // Instant show on mobile
-                        if (el.getBoundingClientRect().top < window.innerHeight) {
-                            el.classList.add('visible');
-                            el.style.opacity = '1';
-                            el.style.transform = 'none';
-                        }
-                    } else {
-                        // Staggered on desktop
+                if (shouldDisableAnimations) {
+                    // Show ALL elements immediately on mobile
+                    document.querySelectorAll('*').forEach(el => {
+                        el.style.opacity = '1';
+                        el.style.transform = 'none';
+                        el.style.animation = 'none';
+                        el.classList.add('visible');
+                    });
+                } else {
+                    // Staggered on desktop
+                    document.querySelectorAll('.fade-in').forEach((el, index) => {
                         setTimeout(() => {
                             if (el.getBoundingClientRect().top < window.innerHeight) {
                                 el.classList.add('visible');
                             }
                         }, index * 100);
-                    }
-                });
-            }, isMobile ? 100 : 500);
+                    });
+                }
+            }, isMobile ? 50 : 500);
         });
 
         // Performance optimization with throttling (Desktop Only)
