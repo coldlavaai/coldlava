@@ -9,14 +9,14 @@
         :root {
             --primary-bg: #0a0a33;
             --secondary-bg: #1a1a4a;
-            --accent-blue: #00f0ff;
+            --accent-blue: #02bbd4;
             --accent-yellow: #ffe14d;
             --accent-pink: #ff44cc;
             --accent-purple: #8a2be2;
             --text-light: #ffffff;
             --text-gray: #cccccc;
             --text-muted: #aaaaaa;
-            --gradient-blue: linear-gradient(135deg, #00f0ff, #4a90e2);
+            --gradient-blue: linear-gradient(135deg, #02bbd4, #4a90e2);
             --gradient-yellow: linear-gradient(135deg, #ffe14d, #ffb347);
             --gradient-pink: linear-gradient(135deg, #ff44cc, #e73c7e);
             --gradient-main: linear-gradient(135deg, #0a0a33 0%, #1a1a4a 50%, #2a2a5a 100%);
@@ -37,14 +37,14 @@
             position: relative;
         }
 
-        /* Animated Background */
+        /* Enhanced Animated Background */
         .animated-bg {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            z-index: -2;
+            z-index: -3;
             background: var(--gradient-main);
         }
 
@@ -56,46 +56,63 @@
             width: 100%;
             height: 100%;
             background: 
-                radial-gradient(circle at 20% 20%, rgba(0, 240, 255, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 20% 20%, rgba(2, 187, 212, 0.15) 0%, transparent 50%),
                 radial-gradient(circle at 80% 80%, rgba(255, 68, 204, 0.1) 0%, transparent 50%),
-                radial-gradient(circle at 40% 60%, rgba(255, 225, 77, 0.05) 0%, transparent 50%);
-            animation: backgroundMove 20s ease-in-out infinite;
+                radial-gradient(circle at 40% 60%, rgba(255, 225, 77, 0.08) 0%, transparent 50%),
+                radial-gradient(circle at 60% 20%, rgba(138, 43, 226, 0.05) 0%, transparent 50%);
+            animation: backgroundMove 25s ease-in-out infinite;
         }
 
         @keyframes backgroundMove {
             0%, 100% { transform: translate(0, 0) rotate(0deg); }
-            33% { transform: translate(-20px, -20px) rotate(1deg); }
-            66% { transform: translate(20px, 20px) rotate(-1deg); }
+            25% { transform: translate(-30px, -20px) rotate(1deg); }
+            50% { transform: translate(20px, 30px) rotate(-1deg); }
+            75% { transform: translate(-20px, 20px) rotate(0.5deg); }
         }
 
-        /* Floating particles */
+        /* Enhanced floating particles */
         .particles {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            z-index: -1;
+            z-index: -2;
             pointer-events: none;
         }
 
         .particle {
             position: absolute;
+            border-radius: 50%;
+            animation: float 20s linear infinite;
+        }
+
+        .particle:nth-child(4n) {
+            width: 3px;
+            height: 3px;
+            background: rgba(2, 187, 212, 0.8);
+            animation-duration: 25s;
+        }
+
+        .particle:nth-child(4n+1) {
             width: 2px;
             height: 2px;
-            background: rgba(0, 240, 255, 0.6);
-            border-radius: 50%;
-            animation: float 15s linear infinite;
+            background: rgba(255, 225, 77, 0.6);
+            animation-duration: 30s;
         }
 
-        .particle:nth-child(2n) {
-            background: rgba(255, 225, 77, 0.4);
-            animation-duration: 20s;
+        .particle:nth-child(4n+2) {
+            width: 2.5px;
+            height: 2.5px;
+            background: rgba(255, 68, 204, 0.7);
+            animation-duration: 22s;
         }
 
-        .particle:nth-child(3n) {
-            background: rgba(255, 68, 204, 0.5);
-            animation-duration: 25s;
+        .particle:nth-child(4n+3) {
+            width: 1.5px;
+            height: 1.5px;
+            background: rgba(138, 43, 226, 0.5);
+            animation-duration: 35s;
         }
 
         @keyframes float {
@@ -115,23 +132,24 @@
             }
         }
 
-        /* Navigation */
+        /* Enhanced Navigation */
         .navbar {
             position: fixed;
             top: 0;
             width: 100%;
             background: rgba(10, 10, 51, 0.95);
-            backdrop-filter: blur(15px);
-            -webkit-backdrop-filter: blur(15px);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
             z-index: 1000;
             padding: 1rem 0;
-            transition: all 0.3s ease;
+            transition: all 0.4s ease;
             border-bottom: 1px solid rgba(255, 255, 255, 0.1);
         }
 
         .navbar.scrolled {
             background: rgba(10, 10, 51, 0.98);
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+            transform: translateY(0);
         }
 
         .nav-container {
@@ -151,12 +169,22 @@
             font-weight: 800;
             color: var(--text-light);
             text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .logo:hover {
+            transform: scale(1.05);
         }
 
         .logo img {
             width: 45px;
             height: auto;
-            filter: drop-shadow(0 0 10px rgba(0, 240, 255, 0.3));
+            filter: drop-shadow(0 0 15px rgba(2, 187, 212, 0.4));
+            transition: filter 0.3s ease;
+        }
+
+        .logo:hover img {
+            filter: drop-shadow(0 0 20px rgba(255, 225, 77, 0.6));
         }
 
         .nav-menu {
@@ -211,7 +239,7 @@
             background: var(--accent-blue);
             color: var(--primary-bg);
             transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(0, 240, 255, 0.3);
+            box-shadow: 0 8px 25px rgba(2, 187, 212, 0.4);
         }
 
         /* Hero Section */
@@ -280,7 +308,7 @@
             border: none;
             border-radius: 50px;
             text-decoration: none;
-            transition: all 0.3s ease;
+            transition: all 0.4s ease;
             cursor: pointer;
             position: relative;
             overflow: hidden;
@@ -298,12 +326,12 @@
         }
 
         .cta-button:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
         }
 
         .cta-primary:hover {
-            box-shadow: 0 15px 35px rgba(0, 240, 255, 0.4);
+            box-shadow: 0 20px 40px rgba(2, 187, 212, 0.4);
         }
 
         .cta-secondary:hover {
@@ -311,11 +339,96 @@
             color: var(--primary-bg);
         }
 
-        /* Services Section */
-        .services {
+        /* AI Agents Section */
+        .ai-agents {
             padding: 8rem 2rem;
             background: transparent;
             position: relative;
+        }
+
+        .ai-hero {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: center;
+            max-width: 1400px;
+            margin: 0 auto 8rem;
+            gap: 4rem;
+        }
+
+        .ai-hero-content {
+            flex: 1 1 500px;
+            text-align: center;
+        }
+
+        .ai-hero-image {
+            flex: 1 1 400px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .sophie-img {
+            max-width: 400px;
+            width: 100%;
+            filter: drop-shadow(0 0 15px var(--accent-blue)) drop-shadow(0 0 30px var(--accent-blue));
+            transition: all 0.5s ease;
+            border-radius: 20px;
+        }
+
+        .sophie-img:hover {
+            filter: drop-shadow(0 0 20px var(--accent-yellow)) drop-shadow(0 0 40px var(--accent-yellow));
+            transform: scale(1.05) rotateY(5deg);
+        }
+
+        .ai-hero-logo {
+            max-width: 160px;
+            margin-bottom: 1.5rem;
+            filter: drop-shadow(0 0 10px rgba(2, 187, 212, 0.3));
+        }
+
+        .ai-hero-title {
+            font-size: 3rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            color: var(--text-light);
+        }
+
+        .ai-hero-subtitle {
+            font-size: 2rem;
+            color: var(--accent-blue);
+            font-weight: 700;
+            margin-bottom: 2rem;
+        }
+
+        .ai-hero-description {
+            font-size: 1.1rem;
+            color: var(--text-gray);
+            line-height: 1.8;
+            margin-bottom: 2.5rem;
+            font-weight: 500;
+        }
+
+        .sophie-cta {
+            display: inline-block;
+            background: var(--accent-blue);
+            color: var(--primary-bg);
+            padding: 1rem 2.5rem;
+            border-radius: 50px;
+            font-weight: 700;
+            text-decoration: none;
+            box-shadow: 0 0 15px var(--accent-blue);
+            transition: all 0.4s ease;
+        }
+
+        .sophie-cta:hover {
+            background: var(--accent-yellow);
+            box-shadow: 0 0 25px var(--accent-yellow), 0 0 50px var(--accent-yellow);
+            transform: translateY(-3px) scale(1.05);
+        }
+
+        /* Capabilities Grid */
+        .capabilities-section {
+            margin-bottom: 8rem;
         }
 
         .section-divider {
@@ -346,129 +459,341 @@
             font-weight: 500;
         }
 
-        .services-container {
+        .capabilities-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 3rem;
             max-width: 1400px;
             margin: 0 auto;
         }
 
-        .services-wrapper {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
-            gap: 4rem;
-            margin-bottom: 6rem;
-        }
-
-        .service-card {
+        .capability-card {
             padding: 3rem;
             border-radius: 25px;
             background: rgba(255, 255, 255, 0.03);
             backdrop-filter: blur(20px);
             border: 1px solid rgba(255, 255, 255, 0.1);
-            color: white;
             text-align: center;
             transition: all 0.5s ease;
             position: relative;
             overflow: hidden;
+            box-shadow: 0 0 15px rgba(2, 187, 212, 0.2);
         }
 
-        .service-card::before {
+        .capability-card::before {
             content: '';
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background: linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, transparent 100%);
+            background: linear-gradient(135deg, rgba(2, 187, 212, 0.1) 0%, transparent 100%);
             opacity: 0;
             transition: opacity 0.3s ease;
         }
 
-        .service-card:hover::before {
+        .capability-card:hover::before {
             opacity: 1;
         }
 
-        .ai-card:hover {
-            transform: translateY(-10px) rotate(-1deg);
-            box-shadow: 0 20px 60px rgba(0, 240, 255, 0.2);
-            border-color: var(--accent-blue);
-        }
-
-        .reactivation-card:hover {
-            transform: translateY(-10px) rotate(1deg);
-            box-shadow: 0 20px 60px rgba(255, 225, 77, 0.2);
+        .capability-card:hover {
+            transform: translateY(-10px) rotate(2deg) scale(1.02);
+            box-shadow: 0 25px 60px rgba(255, 225, 77, 0.3);
             border-color: var(--accent-yellow);
         }
 
-        .service-icon {
-            width: 70px;
+        .capability-icon {
+            width: 60px;
             margin-bottom: 2rem;
-            filter: drop-shadow(0 0 15px rgba(255, 255, 255, 0.2));
+            filter: drop-shadow(0 0 10px var(--accent-blue));
+            transition: filter 0.3s ease;
         }
 
-        .service-title {
-            font-size: 2rem;
+        .capability-card:hover .capability-icon {
+            filter: drop-shadow(0 0 15px var(--accent-yellow));
+        }
+
+        .capability-card h4 {
+            font-size: 1.3rem;
             font-weight: 800;
             margin-bottom: 1rem;
             color: var(--text-light);
         }
 
-        .service-subtitle {
-            font-size: 1.1rem;
-            line-height: 1.8;
+        .capability-card p {
+            font-size: 1rem;
             color: var(--text-gray);
+            line-height: 1.7;
+            font-weight: 400;
+        }
+
+        /* Team Integration Section */
+        .team-integration {
+            padding: 8rem 2rem;
+            background: transparent;
+        }
+
+        .team-integration-inner {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 4rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .team-image {
+            flex: 1 1 500px;
+            max-width: 600px;
+        }
+
+        .team-image img {
+            width: 100%;
+            border-radius: 25px;
+            box-shadow: 0 0 20px var(--accent-blue);
+            transition: all 0.5s ease;
+        }
+
+        .team-image img:hover {
+            transform: scale(1.03) rotateY(-5deg);
+            box-shadow: 0 0 30px var(--accent-yellow);
+        }
+
+        .team-content {
+            flex: 1 1 500px;
+        }
+
+        .team-content h2 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 2rem;
+            color: var(--text-light);
+        }
+
+        .team-content p {
+            font-size: 1.1rem;
+            color: var(--text-gray);
+            line-height: 1.8;
             margin-bottom: 2rem;
             font-weight: 500;
         }
 
-        .service-description {
-            margin: 0 auto 2rem auto;
-            font-size: 1rem;
-            line-height: 1.8;
-            color: var(--text-gray);
-            font-weight: 400;
-        }
-
-        .service-features {
+        .team-features {
             list-style: none;
-            padding: 0;
-            text-align: left;
+            margin-bottom: 3rem;
+        }
+
+        .team-features li {
             font-size: 1rem;
-            line-height: 2;
+            margin-bottom: 1rem;
+            padding-left: 2rem;
+            position: relative;
             color: var(--text-gray);
-            margin-bottom: 2.5rem;
         }
 
-        .service-features li {
-            margin-bottom: 0.8rem;
-            padding-left: 1rem;
-            position: relative;
+        .team-features li::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0.6rem;
+            width: 10px;
+            height: 10px;
+            background: var(--accent-blue);
+            border-radius: 50%;
+            box-shadow: 0 0 8px var(--accent-blue);
         }
 
-        .service-cta {
+        .team-buttons {
+            display: flex;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .team-btn {
             display: inline-block;
+            background: var(--accent-blue);
+            color: var(--primary-bg);
             padding: 1rem 2rem;
-            font-weight: 700;
-            font-size: 1.1rem;
             border-radius: 50px;
+            font-weight: 700;
             text-decoration: none;
+            box-shadow: 0 0 15px var(--accent-blue);
             transition: all 0.4s ease;
-            position: relative;
-            overflow: hidden;
         }
 
-        .ai-cta {
-            background: var(--gradient-blue);
-            color: var(--primary-bg);
+        .team-btn:hover {
+            background: var(--accent-yellow);
+            box-shadow: 0 0 25px var(--accent-yellow);
+            transform: translateY(-3px) scale(1.05);
+        }
+
+        /* Database Reactivation Section */
+        .reactivation {
+            padding: 8rem 2rem;
+            background: transparent;
+            position: relative;
+        }
+
+        .reactivation-hero {
+            text-align: center;
+            max-width: 1000px;
+            margin: 0 auto 8rem;
+        }
+
+        .reactivation-logo {
+            max-width: 140px;
+            margin-bottom: 2rem;
+            filter: drop-shadow(0 0 10px rgba(255, 225, 77, 0.4));
+        }
+
+        .reactivation-title {
+            font-size: 3.5rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            color: var(--text-light);
+        }
+
+        .reactivation-subtitle {
+            font-size: 2.5rem;
+            color: var(--accent-yellow);
+            font-weight: 700;
+            margin-bottom: 2rem;
+        }
+
+        .reactivation-description {
+            font-size: 1.2rem;
+            color: var(--text-gray);
+            line-height: 1.8;
+            margin-bottom: 3rem;
+            font-weight: 500;
         }
 
         .reactivation-cta {
-            background: var(--gradient-yellow);
+            display: inline-block;
+            background: var(--accent-yellow);
             color: var(--primary-bg);
+            padding: 1rem 2.5rem;
+            border-radius: 50px;
+            font-weight: 700;
+            text-decoration: none;
+            box-shadow: 0 0 15px var(--accent-yellow);
+            transition: all 0.4s ease;
+            margin-bottom: 3rem;
         }
 
-        .service-cta:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+        .reactivation-cta:hover {
+            background: var(--accent-blue);
+            box-shadow: 0 0 25px var(--accent-blue);
+            transform: translateY(-3px) scale(1.05);
+        }
+
+        .reactivation-image {
+            width: 100%;
+            max-width: 800px;
+            border-radius: 20px;
+            box-shadow: 0 0 20px var(--accent-yellow);
+            transition: all 0.5s ease;
+        }
+
+        .reactivation-image:hover {
+            transform: scale(1.03);
+            box-shadow: 0 0 40px var(--accent-blue);
+        }
+
+        /* Solutions Grid */
+        .solutions-section {
+            margin-top: 8rem;
+        }
+
+        .solutions-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 3rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .solution-card {
+            padding: 3rem;
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 25px;
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            text-align: left;
+            transition: all 0.5s ease;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 0 15px rgba(255, 225, 77, 0.2);
+        }
+
+        .solution-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(255, 225, 77, 0.1) 0%, transparent 100%);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .solution-card:hover::before {
+            opacity: 1;
+        }
+
+        .solution-card:hover {
+            transform: translateY(-10px) rotate(-1deg) scale(1.02);
+            box-shadow: 0 25px 60px rgba(2, 187, 212, 0.3);
+            border-color: var(--accent-blue);
+        }
+
+        .solution-card img {
+            width: 50px;
+            margin-bottom: 1.5rem;
+            filter: drop-shadow(0 0 8px var(--accent-yellow));
+            transition: filter 0.3s ease;
+        }
+
+        .solution-card:hover img {
+            filter: drop-shadow(0 0 12px var(--accent-blue));
+        }
+
+        .solution-card h4 {
+            font-size: 1.2rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            color: var(--text-light);
+        }
+
+        .solution-card p {
+            font-size: 1rem;
+            color: var(--text-gray);
+            line-height: 1.7;
+            font-weight: 400;
+        }
+
+        .solutions-cta {
+            text-align: center;
+            margin-top: 4rem;
+        }
+
+        .solutions-cta a {
+            display: inline-block;
+            background: var(--accent-yellow);
+            color: var(--primary-bg);
+            padding: 1rem 2.5rem;
+            border-radius: 50px;
+            font-weight: 700;
+            text-decoration: none;
+            box-shadow: 0 0 15px var(--accent-yellow);
+            transition: all 0.4s ease;
+        }
+
+        .solutions-cta a:hover {
+            background: var(--accent-blue);
+            box-shadow: 0 0 25px var(--accent-blue);
+            transform: translateY(-3px) scale(1.05);
         }
 
         /* About Section */
@@ -529,7 +854,7 @@
 
         .jacob-card:hover {
             transform: translateY(-8px) rotate(-0.5deg);
-            box-shadow: 0 20px 60px rgba(0, 240, 255, 0.15);
+            box-shadow: 0 20px 60px rgba(2, 187, 212, 0.15);
             border-color: var(--accent-blue);
         }
 
@@ -623,15 +948,16 @@
         }
 
         .footer-logo img {
-            width: 70px;
+            width: 90px;
             margin-bottom: 1rem;
-            filter: drop-shadow(0 0 15px rgba(0, 240, 255, 0.3));
+            filter: drop-shadow(0 0 15px rgba(2, 187, 212, 0.3));
         }
 
-        .footer-logo h4 {
-            font-size: 1.3rem;
-            font-weight: 800;
+        .footer-tagline {
             color: var(--text-light);
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+            font-weight: 600;
         }
 
         .footer-links {
@@ -655,34 +981,29 @@
             transform: translateY(-2px);
         }
 
-        .footer-links .ai-link {
-            color: var(--accent-blue);
-            border: 1px solid var(--accent-blue);
-        }
-
-        .footer-links .ai-link:hover {
-            background: var(--accent-blue);
-            color: var(--primary-bg);
-        }
-
-        .footer-links .reactivation-link {
+        .footer-nav-link {
             color: var(--accent-yellow);
             border: 1px solid var(--accent-yellow);
         }
 
-        .footer-links .reactivation-link:hover {
+        .footer-nav-link:hover {
             background: var(--accent-yellow);
             color: var(--primary-bg);
         }
 
-        .footer-links .contact-link {
-            color: var(--text-light);
-            border: 1px solid var(--text-light);
+        .footer-contact {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            margin-bottom: 2rem;
         }
 
-        .footer-links .contact-link:hover {
-            background: var(--text-light);
-            color: var(--primary-bg);
+        .footer-contact a {
+            color: var(--accent-yellow);
+            text-decoration: none;
+        }
+
+        .footer-contact a:hover {
+            color: var(--accent-blue);
         }
 
         .footer-cta {
@@ -703,11 +1024,11 @@
 
         .footer-cta a:hover {
             transform: translateY(-3px);
-            box-shadow: 0 15px 35px rgba(0, 240, 255, 0.4);
+            box-shadow: 0 15px 35px rgba(2, 187, 212, 0.4);
         }
 
         .footer-legal {
-            font-size: 0.9rem;
+            font-size: 0.8rem;
             color: var(--text-muted);
             padding-top: 2rem;
             border-top: 1px solid rgba(255, 255, 255, 0.1);
@@ -763,6 +1084,11 @@
                 font-size: 3rem;
             }
 
+            .ai-hero-title,
+            .reactivation-title {
+                font-size: 2.2rem;
+            }
+
             .hero-subtitle,
             .hero-description {
                 font-size: 1rem;
@@ -772,12 +1098,20 @@
                 font-size: 2.5rem;
             }
 
-            .services-wrapper {
+            .ai-hero,
+            .team-integration-inner {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .capabilities-grid,
+            .solutions-grid {
                 grid-template-columns: 1fr;
                 gap: 2rem;
             }
 
-            .service-card,
+            .capability-card,
+            .solution-card,
             .team-card,
             .strategy-card {
                 padding: 2rem;
@@ -787,7 +1121,8 @@
                 grid-template-columns: 1fr;
             }
 
-            .hero-cta {
+            .hero-cta,
+            .team-buttons {
                 flex-direction: column;
                 align-items: center;
             }
@@ -823,10 +1158,10 @@
     </style>
 </head>
 <body>
-    <!-- Animated Background -->
+    <!-- Enhanced Animated Background -->
     <div class="animated-bg"></div>
     
-    <!-- Floating Particles -->
+    <!-- Enhanced Floating Particles -->
     <div class="particles" id="particles"></div>
 
     <!-- Scroll Progress Bar -->
@@ -841,7 +1176,8 @@
             </a>
             <ul class="nav-menu">
                 <li><a href="#home" class="nav-link">Home</a></li>
-                <li><a href="#services" class="nav-link">Services</a></li>
+                <li><a href="#ai-agents" class="nav-link">AI Agents</a></li>
+                <li><a href="#reactivation" class="nav-link">Reactivation</a></li>
                 <li><a href="#about" class="nav-link">About</a></li>
                 <li><a href="#contact" class="nav-link">Contact</a></li>
             </ul>
@@ -856,77 +1192,178 @@
             <h1 class="hero-title">WE ARE COLD LAVA AI</h1>
             <div class="hero-description">HUMAN LED AUTOMATION FOR SMALL BUSINESS</div>
             <div class="hero-cta">
-                <a href="#services" class="cta-button cta-primary">Explore Our Solutions</a>
+                <a href="#ai-agents" class="cta-button cta-primary">Explore Our Solutions</a>
                 <a href="https://book.coldlava.ai/widget/bookings/coldlavaaimbrwiw" class="cta-button cta-secondary">Book Discovery Call</a>
             </div>
         </div>
     </section>
 
-    <!-- Services Section -->
-    <section id="services" class="services">
-        <div class="services-container">
-            <div class="section-divider"></div>
-            <h2 class="section-title fade-in">Our Solutions</h2>
-            <p class="section-subtitle fade-in">
-                Transform your business with AI that works around the clock, converting leads while you sleep and scaling your operations without limits.
-            </p>
+    <!-- AI Agents Section -->
+    <section id="ai-agents" class="ai-agents">
+        <!-- AI Agents Hero -->
+        <div class="ai-hero">
+            <div class="ai-hero-content fade-in">
+                <img src="https://cdn.shopify.com/s/files/1/0951/6141/8067/files/LAVA_1.png?v=1753207208" alt="Cold Lava Logo" class="ai-hero-logo">
+                <h1 class="ai-hero-title">Your AI Agent</h1>
+                <h2 class="ai-hero-subtitle">Engage. Convert. Scale — <span>24/7</span></h2>
+                <p class="ai-hero-description">
+                    Our AI Agents are trained to speak like your best salesperson — but they never sleep,
+                    never forget a follow-up, and never ask for a raise. Whether it's qualifying leads,
+                    booking calls, or handling customer questions, they do it all, instantly and at scale.
+                </p>
+                <a href="tel:+441515416933" class="sophie-cta">📞 Try a Call with Sophie</a>
+            </div>
             
-            <div class="services-wrapper">
-                <!-- AI Voice & Chat Agents -->
-                <div class="service-card ai-card fade-in">
-                    <img src="https://cdn-icons-png.flaticon.com/512/4712/4712027.png" alt="AI Icon" class="service-icon">
-                    
-                    <h3 class="service-title">AI Voice & Chat Agents</h3>
-                    
-                    <p class="service-subtitle">
-                        Never miss another opportunity — let AI handle your conversations while you focus on running your business.
-                    </p>
-                    
-                    <p class="service-description">
-                        Whether it's calls, messages, lead qualification or bookings — our AI agents work instantly, 24/7, matching your brand voice and driving conversions.
-                    </p>
-                    
-                    <ul class="service-features">
-                        <li>🤖 Voice & chat support tailored to you</li>
-                        <li>⚡ Handles FAQs, quotes, bookings</li>
-                        <li>📈 Works 24/7 — no sick days</li>
-                        <li>🎯 Lead qualification & routing</li>
-                        <li>💬 Multi-channel support</li>
-                        <li>📊 Real-time analytics</li>
-                    </ul>
-                    
-                    <a href="https://agents.coldlava.ai" class="service-cta ai-cta">
-                        👉 Meet Our AI Agents
-                    </a>
+            <div class="ai-hero-image fade-in">
+                <img src="https://cdn.shopify.com/s/files/1/0951/6141/8067/files/f63e1b45-8157-4920-ab3f-2833797fb6b9.png?v=1753867612" alt="AI Agent Sophie" class="sophie-img">
+            </div>
+        </div>
+
+        <!-- Capabilities Section -->
+        <div class="capabilities-section">
+            <div class="section-divider"></div>
+            <h2 class="section-title fade-in">What Your AI Sales Agents Can Do</h2>
+            <p class="section-subtitle fade-in">
+                Cold Lava AI Agents aren't just reactive — they're proactive, intelligent, and fully customised to represent your brand 24/7.
+            </p>
+
+            <div class="capabilities-grid">
+                <div class="capability-card fade-in">
+                    <img src="https://cdn-icons-png.flaticon.com/512/2815/2815428.png" alt="Calls" class="capability-icon">
+                    <h4>Handle Every Call</h4>
+                    <p>Inbound or outbound, your AI Agent answers with precision, warmth, and your brand tone.</p>
                 </div>
-                
-                <!-- Database Reactivation -->
-                <div class="service-card reactivation-card fade-in">
-                    <img src="https://cdn-icons-png.flaticon.com/512/942/942751.png" alt="Reconnect Icon" class="service-icon">
-                    
-                    <h3 class="service-title">Database Reactivation</h3>
-                    
-                    <p class="service-subtitle">
-                        You paid for the leads — now let them pay you back.
-                    </p>
-                    
-                    <p class="service-description">
-                        We reconnect with cold, ignored or abandoned leads using human-sounding AI and proven psychology — turning lost data into booked conversations.
-                    </p>
-                    
-                    <ul class="service-features">
-                        <li>⚡ No win, no fee options</li>
-                        <li>⚡ Solar, finance, wellness & more</li>
-                        <li>⚡ Converts old leads into deals</li>
-                        <li>🎯 Psychology-based messaging</li>
-                        <li>📈 Proven conversion strategies</li>
-                        <li>💰 ROI-focused approach</li>
-                    </ul>
-                    
-                    <a href="https://reactivation.coldlava.ai" class="service-cta reactivation-cta">
-                        👉 Revive Your Old Leads
-                    </a>
+
+                <div class="capability-card fade-in">
+                    <img src="https://cdn-icons-png.flaticon.com/512/1041/1041916.png" alt="Follow-up" class="capability-icon">
+                    <h4>Never Miss a Follow-Up</h4>
+                    <p>Automated reminders, check-ins, and re-engagements — delivered exactly when they're needed.</p>
                 </div>
+
+                <div class="capability-card fade-in">
+                    <img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png" alt="Customisation" class="capability-icon">
+                    <h4>Fully Customisable</h4>
+                    <p>Personalise your agent's voice, tone, knowledge base, and even their personality.</p>
+                </div>
+
+                <div class="capability-card fade-in">
+                    <img src="https://cdn-icons-png.flaticon.com/512/709/709699.png" alt="Omni-channel" class="capability-icon">
+                    <h4>Omni-Channel Messaging</h4>
+                    <p>Seamless integration across Voice, SMS, Email, WhatsApp, Social, and Web chat.</p>
+                </div>
+
+                <div class="capability-card fade-in">
+                    <img src="https://cdn-icons-png.flaticon.com/512/1828/1828817.png" alt="Reporting" class="capability-icon">
+                    <h4>Data-Driven Insights</h4>
+                    <p>Get real-time reports on performance, conversions, and customer sentiment.</p>
+                </div>
+
+                <div class="capability-card fade-in">
+                    <img src="https://cdn-icons-png.flaticon.com/512/3135/3135692.png" alt="Availability" class="capability-icon">
+                    <h4>Always Available</h4>
+                    <p>Works 7 days a week, 365 days a year — so your business never misses an opportunity.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team Integration Section -->
+    <section class="team-integration">
+        <div class="team-integration-inner">
+            <div class="team-image fade-in">
+                <img src="https://cdn.shopify.com/s/files/1/0951/6141/8067/files/ChatGPT_Image_Jul_15_2025_02_52_12_PM.png?v=1753980957" alt="AI working with team">
+            </div>
+
+            <div class="team-content fade-in">
+                <h2>Seamlessly Integrated Into Your Team</h2>
+                <p>
+                    Cold Lava AI Agents aren't here to replace people — they're here to make them unstoppable.  
+                    By understanding your brand ethos, tone of voice, and ways of working, our agents blend into your team like they've been there for years.  
+                    They support human colleagues, not compete with them — freeing your people to focus on creative, high-value work while AI takes care of the rest.
+                </p>
+
+                <ul class="team-features">
+                    <li>💬 Adapts instantly to your brand's tone, language, and customer culture.</li>
+                    <li>👥 Works alongside your human team to enhance productivity, not replace it.</li>
+                    <li>📌 Understands your values and priorities — making every interaction feel on-brand.</li>
+                    <li>📈 Removes admin bottlenecks so your people can focus on growth and innovation.</li>
+                    <li>🔄 Fits seamlessly into your existing workflows without disruption.</li>
+                </ul>
+
+                <div class="team-buttons">
+                    <a href="https://book.coldlava.ai/widget/bookings/coldlavaaimbrwiw" target="_blank" class="team-btn">Book a discovery call</a>
+                    <a href="tel:+441515416933" class="team-btn">Try a call with Sophie</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Database Reactivation Section -->
+    <section id="reactivation" class="reactivation">
+        <!-- Reactivation Hero -->
+        <div class="reactivation-hero">
+            <img src="https://cdn.shopify.com/s/files/1/0951/6141/8067/files/LAVA_1.png?v=1753207208" alt="Cold Lava Logo" class="reactivation-logo fade-in">
+            <h1 class="reactivation-title fade-in">Reignite Old Leads</h1>
+            <h2 class="reactivation-subtitle fade-in">Turn Dead Data into Live Sales</h2>
+            <p class="reactivation-description fade-in">
+                Cold Lava's AI-powered reactivation systems bring your forgotten leads back to life.<br />
+                We automate conversations, qualify intent, and drive £10K–£100K+ in extra sales from data you'd written off.
+            </p>
+            <a href="https://book.coldlava.ai/widget/bookings/coldlavaaimbrwiw" class="reactivation-cta fade-in">Get Started</a>
+            <div class="fade-in">
+                <img src="https://cdn.shopify.com/s/files/1/0951/6141/8067/files/ChatGPT_Image_Jul_31_2025_02_06_34_PM.png?v=1753967209" alt="Back from the dead" class="reactivation-image">
+            </div>
+        </div>
+
+        <!-- Solutions Section -->
+        <div class="solutions-section">
+            <div class="section-divider"></div>
+            <h2 class="section-title fade-in">AI-Powered Client Re-Engagement That Works</h2>
+            <p class="section-subtitle fade-in">
+                Our Database Reactivation isn't just about chasing old leads — it's about building a predictable,
+                always-on revenue channel. We connect, nurture, and convert, all while you focus on running your business.
+            </p>
+
+            <div class="solutions-grid">
+                <div class="solution-card fade-in">
+                    <img src="https://cdn-icons-png.flaticon.com/512/1055/1055646.png" alt="Growth">
+                    <h4>Predictable Sales Growth</h4>
+                    <p>Transform idle contacts into a steady, measurable stream of new business without increasing ad spend.</p>
+                </div>
+
+                <div class="solution-card fade-in">
+                    <img src="https://cdn-icons-png.flaticon.com/512/2920/2920239.png" alt="Tailored">
+                    <h4>Tailored to Your Market</h4>
+                    <p>Industry-specific messaging & sequences crafted to resonate with your audience and maximise conversions.</p>
+                </div>
+
+                <div class="solution-card fade-in">
+                    <img src="https://cdn-icons-png.flaticon.com/512/2910/2910705.png" alt="Automated">
+                    <h4>24/7 Automated Outreach</h4>
+                    <p>Your campaigns never sleep. AI nurtures leads continuously and strikes at the moment they're ready.</p>
+                </div>
+
+                <div class="solution-card fade-in">
+                    <img src="https://cdn-icons-png.flaticon.com/512/4315/4315609.png" alt="Data">
+                    <h4>Data-Driven Insights</h4>
+                    <p>Track every touchpoint with crystal-clear reporting, so you know exactly what's driving sales.</p>
+                </div>
+
+                <div class="solution-card fade-in">
+                    <img src="https://cdn-icons-png.flaticon.com/512/2910/2910783.png" alt="Human AI">
+                    <h4>Human-Sounding AI</h4>
+                    <p>Conversations that feel authentic, empathetic, and brand-true — not robotic or generic.</p>
+                </div>
+
+                <div class="solution-card fade-in">
+                    <img src="https://cdn-icons-png.flaticon.com/512/3876/3876317.png" alt="ROI">
+                    <h4>ROI-Only Pricing</h4>
+                    <p>No upfront risk. You only pay when our system generates qualified sales opportunities.</p>
+                </div>
+            </div>
+
+            <div class="solutions-cta">
+                <a href="https://book.coldlava.ai/widget/bookings/coldlavaaimbrwiw">🚀 Start Re-Engaging Clients</a>
             </div>
         </div>
     </section>
@@ -987,13 +1424,19 @@
     <footer id="contact" class="footer">
         <div class="footer-logo">
             <img src="https://cdn.shopify.com/s/files/1/0951/6141/8067/files/LAVA_1.png?v=1753207208" alt="Cold Lava Logo">
-            <h4>Cold Lava AI</h4>
+            <div class="footer-tagline">AI Sales & Reactivation That Works 24/7</div>
         </div>
         
         <div class="footer-links">
-            <a href="https://agents.coldlava.ai" target="_blank" class="ai-link">AI Agents</a>
-            <a href="https://reactivation.coldlava.ai" target="_blank" class="reactivation-link">Database Reactivation</a>
-            <a href="mailto:hello@coldlava.ai" class="contact-link">Contact</a>
+            <a href="#home" class="footer-nav-link">Home</a>
+            <a href="#ai-agents" class="footer-nav-link">AI Agents</a>
+            <a href="#reactivation" class="footer-nav-link">Reactivation</a>
+            <a href="#about" class="footer-nav-link">About</a>
+        </div>
+
+        <div class="footer-contact">
+            Cold Lava Ltd · Liverpool, United Kingdom<br>
+            <a href="mailto:hello@coldlava.ai">hello@coldlava.ai</a>
         </div>
         
         <div class="footer-cta">
@@ -1012,20 +1455,20 @@
         // Dynamic year for footer
         document.getElementById('year').textContent = new Date().getFullYear();
 
-        // Create floating particles
+        // Enhanced floating particles
         function createParticles() {
             const particlesContainer = document.getElementById('particles');
-            for (let i = 0; i < 50; i++) {
+            for (let i = 0; i < 80; i++) {
                 const particle = document.createElement('div');
                 particle.className = 'particle';
                 particle.style.left = Math.random() * 100 + '%';
-                particle.style.animationDelay = Math.random() * 15 + 's';
-                particle.style.animationDuration = (15 + Math.random() * 10) + 's';
+                particle.style.animationDelay = Math.random() * 20 + 's';
+                particle.style.animationDuration = (20 + Math.random() * 15) + 's';
                 particlesContainer.appendChild(particle);
             }
         }
 
-        // Scroll progress bar
+        // Enhanced scroll progress bar
         function updateScrollProgress() {
             const scrollTop = window.pageYOffset;
             const docHeight = document.body.scrollHeight - window.innerHeight;
@@ -1033,25 +1476,39 @@
             document.getElementById('scrollProgress').style.width = scrollPercent + '%';
         }
 
-        // Parallax effect for background elements
+        // Enhanced parallax effect
         function handleParallax() {
             const scrolled = window.pageYOffset;
             const bg = document.querySelector('.animated-bg');
+            const particles = document.querySelector('.particles');
+            
             if (bg) {
                 bg.style.transform = `translateY(${scrolled * 0.1}px)`;
             }
+            if (particles) {
+                particles.style.transform = `translateY(${scrolled * 0.05}px)`;
+            }
+
+            // Parallax for hero elements
+            const heroElements = document.querySelectorAll('.hero-content > *');
+            heroElements.forEach((el, index) => {
+                const speed = 0.02 + (index * 0.01);
+                el.style.transform = `translateY(${scrolled * speed}px)`;
+            });
         }
 
-        // Scroll animations
+        // Enhanced scroll animations
         const observerOptions = {
             threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
+            rootMargin: '0px 0px -100px 0px'
         };
 
         const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
+            entries.forEach((entry, index) => {
                 if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
+                    setTimeout(() => {
+                        entry.target.classList.add('visible');
+                    }, index * 100);
                 }
             });
         }, observerOptions);
@@ -1061,7 +1518,7 @@
             observer.observe(el);
         });
 
-        // Navbar scroll effects
+        // Enhanced navbar scroll effects
         function handleNavbarScroll() {
             const navbar = document.getElementById('navbar');
             if (window.scrollY > 100) {
@@ -1071,8 +1528,8 @@
             }
         }
 
-        // Smooth scrolling for navigation links
-        document.querySelectorAll('.nav-link, .logo').forEach(link => {
+        // Enhanced smooth scrolling for navigation links
+        document.querySelectorAll('.nav-link, .logo, .footer-nav-link').forEach(link => {
             link.addEventListener('click', (e) => {
                 e.preventDefault();
                 const targetId = link.getAttribute('href');
@@ -1087,6 +1544,44 @@
             });
         });
 
+        // Enhanced hover effects for cards
+        function addCardEffects() {
+            document.querySelectorAll('.capability-card, .solution-card, .team-card').forEach(card => {
+                card.addEventListener('mousemove', (e) => {
+                    const rect = card.getBoundingClientRect();
+                    const x = e.clientX - rect.left;
+                    const y = e.clientY - rect.top;
+                    const centerX = rect.width / 2;
+                    const centerY = rect.height / 2;
+                    const rotateX = (y - centerY) / 30;
+                    const rotateY = (centerX - x) / 30;
+                    
+                    card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateZ(20px)`;
+                });
+                
+                card.addEventListener('mouseleave', () => {
+                    card.style.transform = '';
+                });
+            });
+        }
+
+        // Magnetic effect for CTA buttons
+        function addMagneticEffect() {
+            document.querySelectorAll('.cta-button, .sophie-cta, .reactivation-cta, .team-btn').forEach(btn => {
+                btn.addEventListener('mousemove', (e) => {
+                    const rect = btn.getBoundingClientRect();
+                    const x = e.clientX - rect.left - rect.width / 2;
+                    const y = e.clientY - rect.top - rect.height / 2;
+                    
+                    btn.style.transform = `translate(${x * 0.1}px, ${y * 0.1}px) scale(1.05)`;
+                });
+                
+                btn.addEventListener('mouseleave', () => {
+                    btn.style.transform = '';
+                });
+            });
+        }
+
         // Event listeners
         window.addEventListener('scroll', () => {
             updateScrollProgress();
@@ -1097,37 +1592,34 @@
         // Initialize on page load
         window.addEventListener('load', () => {
             createParticles();
+            addCardEffects();
+            addMagneticEffect();
             
-            // Add staggered animation to elements
+            // Staggered animation initialization
             setTimeout(() => {
                 document.querySelectorAll('.fade-in').forEach((el, index) => {
                     setTimeout(() => {
                         if (el.getBoundingClientRect().top < window.innerHeight) {
                             el.classList.add('visible');
                         }
-                    }, index * 100);
+                    }, index * 50);
                 });
             }, 500);
         });
 
-        // Add hover effects to service cards
-        document.querySelectorAll('.service-card').forEach(card => {
-            card.addEventListener('mousemove', (e) => {
-                const rect = card.getBoundingClientRect();
-                const x = e.clientX - rect.left;
-                const y = e.clientY - rect.top;
-                const centerX = rect.width / 2;
-                const centerY = rect.height / 2;
-                const rotateX = (y - centerY) / 20;
-                const rotateY = (centerX - x) / 20;
-                
-                card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateZ(0)`;
-            });
-            
-            card.addEventListener('mouseleave', () => {
-                card.style.transform = '';
-            });
-        });
+        // Performance optimization
+        let ticking = false;
+        function requestTick() {
+            if (!ticking) {
+                requestAnimationFrame(() => {
+                    handleParallax();
+                    ticking = false;
+                });
+                ticking = true;
+            }
+        }
+
+        window.addEventListener('scroll', requestTick);
     </script>
 </body>
 </html>
