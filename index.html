@@ -1962,6 +1962,10 @@
             right: 30px;
             z-index: 10000;
             font-family: 'Montserrat', sans-serif;
+            /* Safari mobile fixes */
+            -webkit-transform: translateZ(0);
+            transform: translateZ(0);
+            will-change: transform;
         }
 
         #vapi-hybrid-widget *,
@@ -3874,6 +3878,59 @@
 
             .vapi-message, .vapi-voice-message {
               max-width: 90% !important;
+            }
+          }
+          
+          /* Safari Mobile Specific Fixes */
+          @media (max-width: 480px) and (-webkit-min-device-pixel-ratio: 1) {
+            #vapi-hybrid-widget {
+              /* Force hardware acceleration on Safari */
+              -webkit-transform: translate3d(0,0,0) !important;
+              transform: translate3d(0,0,0) !important;
+              -webkit-backface-visibility: hidden !important;
+              backface-visibility: hidden !important;
+              z-index: 999999 !important;
+            }
+            
+            #vapi-chat-panel {
+              /* Improved positioning and rendering for Safari */
+              position: fixed !important;
+              right: 0px !important;
+              height: 75vh !important;
+              max-height: 480px !important;
+              -webkit-transform: translateZ(0) !important;
+              transform: translateZ(0) !important;
+              -webkit-backdrop-filter: blur(25px) saturate(150%) !important;
+              backdrop-filter: blur(25px) saturate(150%) !important;
+              background: linear-gradient(145deg, rgba(10, 10, 33, 0.92), rgba(10, 10, 33, 0.85)) !important;
+              overflow-y: auto !important;
+              -webkit-overflow-scrolling: touch !important;
+              z-index: 999998 !important;
+            }
+            
+            #vapi-text-messages, #vapi-voice-messages {
+              /* Fix text overlapping on Safari */
+              position: relative !important;
+              z-index: 10 !important;
+              -webkit-transform: translateZ(0) !important;
+              transform: translateZ(0) !important;
+              background: transparent !important;
+            }
+            
+            #vapi-chat-header {
+              /* Ensure header stays on top */
+              position: relative !important;
+              z-index: 15 !important;
+              -webkit-transform: translateZ(0) !important;
+              transform: translateZ(0) !important;
+            }
+            
+            #vapi-input-area {
+              /* Fix input area positioning */
+              position: relative !important;
+              z-index: 15 !important;
+              -webkit-transform: translateZ(0) !important;
+              transform: translateZ(0) !important;
             }
           }
         </style>
