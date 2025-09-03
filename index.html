@@ -41,40 +41,9 @@
             line-height: 1.6;
             overflow-x: hidden;
             position: relative;
-            cursor: none;
         }
 
-        /* Custom Luxury Cursor */
-        .luxury-cursor {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 20px;
-            height: 20px;
-            background: radial-gradient(circle, var(--accent-blue) 0%, transparent 70%);
-            border-radius: 50%;
-            pointer-events: none;
-            z-index: 9999;
-            mix-blend-mode: screen;
-            transition: all 0.1s ease;
-        }
-
-        .luxury-cursor::after {
-            content: '';
-            position: absolute;
-            top: -15px;
-            left: -15px;
-            width: 50px;
-            height: 50px;
-            border: 2px solid rgba(2, 187, 212, 0.3);
-            border-radius: 50%;
-            animation: cursorPulse 2s infinite;
-        }
-
-        @keyframes cursorPulse {
-            0% { transform: scale(0.8); opacity: 1; }
-            100% { transform: scale(1.2); opacity: 0; }
-        }
+        /* Custom Luxury Cursor - REMOVED FOR PERFORMANCE */
 
         /* Ultra Premium Animated Background */
         .animated-bg {
@@ -1494,7 +1463,6 @@
             }
             
             /* Remove all performance-heavy elements */
-            .luxury-cursor,
             .particles,
             .geometric-patterns,
             .animated-bg,
@@ -1975,8 +1943,7 @@
     </style>
 </head>
 <body>
-    <!-- Ultra Premium Luxury Cursor -->
-    <div class="luxury-cursor" id="luxuryCursor"></div>
+    <!-- Luxury Cursor Removed for Better Performance -->
 
     <!-- Ultra Premium Animated Background -->
     <div class="animated-bg"></div>
@@ -2346,26 +2313,7 @@
         // Dynamic year for footer
         document.getElementById('year').textContent = new Date().getFullYear();
 
-        // Ultra Premium Luxury Cursor (Desktop Only)
-        if (!isMobile) {
-            const cursor = document.getElementById('luxuryCursor');
-            let mouseX = 0, mouseY = 0;
-            let cursorX = 0, cursorY = 0;
-
-            document.addEventListener('mousemove', (e) => {
-                mouseX = e.clientX;
-                mouseY = e.clientY;
-            });
-
-            function animateCursor() {
-                cursorX += (mouseX - cursorX) * 0.1;
-                cursorY += (mouseY - cursorY) * 0.1;
-                cursor.style.left = cursorX + 'px';
-                cursor.style.top = cursorY + 'px';
-                requestAnimationFrame(animateCursor);
-            }
-            animateCursor();
-        }
+        // Luxury Cursor Removed - Better Performance
 
         // Mouse Trail Effect (Desktop Only)
         if (!isMobile) {
