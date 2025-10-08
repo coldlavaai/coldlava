@@ -578,6 +578,9 @@
         .service-preview-icon {
             width: 50px;
             margin-bottom: 1.5rem;
+            margin-left: auto;
+            margin-right: auto;
+            display: block;
             filter: drop-shadow(0 0 20px rgba(255, 255, 255, 0.3));
             transition: all 0.4s ease;
         }
@@ -698,6 +701,9 @@
         .consulting-logo {
             width: 80px;
             margin-bottom: 2rem;
+            margin-left: auto;
+            margin-right: auto;
+            display: block;
             filter: drop-shadow(0 0 30px rgba(138, 43, 226, 0.6));
         }
 
@@ -800,6 +806,9 @@
         .journey-icon {
             width: 70px;
             margin-bottom: 2rem;
+            margin-left: auto;
+            margin-right: auto;
+            display: block;
             filter: drop-shadow(0 0 20px rgba(138, 43, 226, 0.5));
             transition: all 0.4s ease;
         }
@@ -856,6 +865,9 @@
         .benefit-card img {
             width: 60px;
             margin-bottom: 1.5rem;
+            margin-left: auto;
+            margin-right: auto;
+            display: block;
             filter: drop-shadow(0 0 15px rgba(138, 43, 226, 0.4));
             transition: all 0.4s ease;
         }
@@ -970,6 +982,9 @@
         .ai-hero-logo {
             max-width: 160px;
             margin-bottom: 1.5rem;
+            margin-left: auto;
+            margin-right: auto;
+            display: block;
             filter: drop-shadow(0 0 20px rgba(2, 187, 212, 0.4));
         }
 
@@ -1095,6 +1110,9 @@
         .capability-icon {
             width: 60px;
             margin-bottom: 2rem;
+            margin-left: auto;
+            margin-right: auto;
+            display: block;
             filter: drop-shadow(0 0 15px var(--accent-blue));
             transition: all 0.4s ease;
         }
@@ -1865,12 +1883,20 @@
             .cta-button {
                 width: calc(100% - 2rem);
                 max-width: 300px;
-                padding: 1rem;
+                padding: 1rem 1.5rem;
                 font-size: 1rem;
                 font-weight: 700;
                 text-align: center;
                 border-radius: 50px;
                 display: block;
+                box-sizing: border-box;
+            }
+
+            .cta-primary,
+            .cta-secondary {
+                width: calc(100% - 2rem);
+                max-width: 300px;
+                padding: 1rem 1.5rem;
             }
 
             /* MOBILE SERVICE PREVIEW CARDS - PROPERLY CONTAINED */
