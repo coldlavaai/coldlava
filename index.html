@@ -2495,146 +2495,6 @@
         data-logo-url="https://cdn.shopify.com/s/files/1/0951/6141/8067/files/LAVA_1.png?v=1753207208"
     ></script>
 
-    <!-- Custom Retell Widget Styling - Cold Lava Branding -->
-    <style>
-        /* Target the Retell FAB button specifically */
-        #retell-fab,
-        .retell-fab {
-            background: linear-gradient(135deg, #02bbd4, #4a90e2) !important;
-            box-shadow: 0 8px 32px rgba(2, 187, 212, 0.4) !important;
-            position: relative !important;
-            overflow: visible !important;
-        }
-
-        #retell-fab:hover,
-        .retell-fab:hover {
-            transform: scale(1.05) !important;
-            box-shadow: 0 12px 40px rgba(2, 187, 212, 0.6) !important;
-        }
-
-        /* Completely hide and remove the robot SVG */
-        #retell-fab svg,
-        .retell-fab svg,
-        #retell-fab svg *,
-        .retell-fab svg *,
-        #retell-fab path,
-        .retell-fab path {
-            opacity: 0 !important;
-            visibility: hidden !important;
-            display: none !important;
-            fill: transparent !important;
-            stroke: transparent !important;
-            width: 0 !important;
-            height: 0 !important;
-            position: absolute !important;
-            left: -9999px !important;
-        }
-
-        /* Add Cold Lava logo using ::after (higher z-index than ::before) */
-        #retell-fab::after,
-        .retell-fab::after {
-            content: '' !important;
-            position: absolute !important;
-            top: 50% !important;
-            left: 50% !important;
-            transform: translate(-50%, -50%) !important;
-            width: 50px !important;
-            height: 50px !important;
-            background-image: url('https://cdn.shopify.com/s/files/1/0951/6141/8067/files/LAVA_1.png?v=1753207208') !important;
-            background-size: contain !important;
-            background-repeat: no-repeat !important;
-            background-position: center !important;
-            filter: drop-shadow(0 0 12px rgba(2, 187, 212, 0.8)) !important;
-            z-index: 99999 !important;
-            pointer-events: none !important;
-        }
-
-        /* Style the widget panel */
-        iframe[id*="retell"],
-        [class*="retell-iframe"] {
-            border: 1px solid rgba(2, 187, 212, 0.3) !important;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5) !important;
-        }
-    </style>
-
-    <!-- Script to aggressively customize widget -->
-    <script>
-        function forceCustomizeWidget() {
-            // Target the specific Retell FAB button
-            const selectors = [
-                '#retell-fab',
-                '.retell-fab',
-                'div[title="Chat"]'
-            ];
-
-            selectors.forEach(selector => {
-                const elements = document.querySelectorAll(selector);
-                elements.forEach(bubble => {
-                    console.log('Customizing element:', bubble);
-
-                    // Force styles
-                    bubble.style.background = 'linear-gradient(135deg, #02bbd4, #4a90e2)';
-                    bubble.style.position = 'relative';
-
-                    // Hide existing icons
-                    const icons = bubble.querySelectorAll('svg, img');
-                    icons.forEach(icon => {
-                        icon.style.display = 'none';
-                        icon.style.opacity = '0';
-                        icon.style.visibility = 'hidden';
-                    });
-
-                    // Check if we already added logo
-                    if (!bubble.querySelector('.cold-lava-custom-logo')) {
-                        const logo = document.createElement('img');
-                        logo.className = 'cold-lava-custom-logo';
-                        logo.src = 'https://cdn.shopify.com/s/files/1/0951/6141/8067/files/LAVA_1.png?v=' + Date.now();
-                        logo.style.cssText = `
-                            position: absolute !important;
-                            top: 50% !important;
-                            left: 50% !important;
-                            transform: translate(-50%, -50%) !important;
-                            width: 45px !important;
-                            height: 45px !important;
-                            filter: drop-shadow(0 0 10px rgba(2, 187, 212, 0.7)) !important;
-                            z-index: 9999 !important;
-                            pointer-events: none !important;
-                        `;
-                        bubble.appendChild(logo);
-                        console.log('Added Cold Lava logo to', bubble);
-                    }
-                });
-            });
-        }
-
-        // Run immediately and repeatedly
-        forceCustomizeWidget();
-        setInterval(forceCustomizeWidget, 500);
-
-        // Run on load
-        window.addEventListener('load', forceCustomizeWidget);
-
-        // Watch for DOM changes
-        const widgetObserver = new MutationObserver(forceCustomizeWidget);
-        // Wait for body to be available before observing
-        if (document.body) {
-            widgetObserver.observe(document.body, { childList: true, subtree: true });
-        } else {
-            document.addEventListener('DOMContentLoaded', () => {
-                widgetObserver.observe(document.body, { childList: true, subtree: true });
-            });
-        }
-    </script>
-
-    <!-- Meta Pixel Code -->
-    <script>
-    !function(f,b,e,v,n,t,s)
-    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-    n.queue=[];t=b.createElement(e);t.async=!0;
-    t.src=v;s=b.getElementsByTagName(e)[0];
-    s.parentNode.insertBefore(t,s)}(window, document,'script',
     'https://connect.facebook.net/en_US/fbevents.js');
     fbq('init', '1680728342604919');
     fbq('track', 'PageView');
@@ -3425,6 +3285,91 @@
             }
         `;
         document.head.appendChild(style);
+    </script>
+
+    <!-- Custom Cold Lava Chat Widget Button -->
+    <button id="cold-lava-chat-button" aria-label="Chat with Sophie">
+        <img src="https://cdn.shopify.com/s/files/1/0951/6141/8067/files/LAVA_1.png?v=1753207208" alt="Chat with Sophie">
+    </button>
+
+    <style>
+        /* HIDE the default Retell button completely */
+        #retell-fab,
+        .retell-fab,
+        div[title="Chat"],
+        button[title="Chat"] {
+            display: none !important;
+            opacity: 0 !important;
+            visibility: hidden !important;
+            pointer-events: none !important;
+        }
+
+        /* Custom Cold Lava Chat Button */
+        #cold-lava-chat-button {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #02bbd4, #4a90e2);
+            box-shadow: 0 8px 32px rgba(2, 187, 212, 0.4);
+            cursor: pointer;
+            z-index: 9999;
+            border: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+
+        #cold-lava-chat-button:hover {
+            transform: scale(1.05);
+            box-shadow: 0 12px 40px rgba(2, 187, 212, 0.6);
+        }
+
+        #cold-lava-chat-button img {
+            width: 45px;
+            height: 45px;
+            filter: drop-shadow(0 0 10px rgba(2, 187, 212, 0.7));
+        }
+
+        /* Mobile responsiveness */
+        @media (max-width: 768px) {
+            #cold-lava-chat-button {
+                width: 60px;
+                height: 60px;
+                bottom: 20px;
+                right: 20px;
+            }
+
+            #cold-lava-chat-button img {
+                width: 38px;
+                height: 38px;
+            }
+        }
+    </style>
+
+    <script>
+        // Click handler to open Retell chat when clicking our custom button
+        document.addEventListener('DOMContentLoaded', () => {
+            const customButton = document.getElementById('cold-lava-chat-button');
+
+            customButton.addEventListener('click', () => {
+                // Find and click the hidden Retell button
+                const retellButton = document.querySelector('#retell-fab, .retell-fab, div[title="Chat"]');
+                if (retellButton) {
+                    retellButton.click();
+                } else {
+                    console.log('Retell button not found, waiting...');
+                    // If not found, wait a bit and try again
+                    setTimeout(() => {
+                        const retellBtn = document.querySelector('#retell-fab, .retell-fab, div[title="Chat"]');
+                        if (retellBtn) retellBtn.click();
+                    }, 500);
+                }
+            });
+        });
     </script>
 </body>
 </html>
