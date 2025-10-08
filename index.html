@@ -2497,122 +2497,129 @@
 
     <!-- Custom Retell Widget Styling - Cold Lava Branding -->
     <style>
-        /* Style the Retell widget button to match Cold Lava branding */
-        #retell-widget-bubble {
+        /* Target all possible Retell widget button variations */
+        button[id*="retell"],
+        div[id*="retell-widget-bubble"],
+        button[aria-label*="Chat"],
+        button[aria-label*="chat"],
+        [class*="retell-button"],
+        [class*="retell-widget-button"] {
             background: linear-gradient(135deg, #02bbd4, #4a90e2) !important;
             box-shadow: 0 8px 32px rgba(2, 187, 212, 0.4) !important;
+            position: relative !important;
         }
 
-        #retell-widget-bubble:hover {
+        button[id*="retell"]:hover,
+        div[id*="retell-widget-bubble"]:hover {
             transform: scale(1.05) !important;
             box-shadow: 0 12px 40px rgba(2, 187, 212, 0.6) !important;
         }
 
-        /* Replace robot icon with Cold Lava logo in the widget button */
-        #retell-widget-bubble svg,
-        #retell-widget-bubble img {
+        /* Hide ALL SVGs and images inside the widget button */
+        button[id*="retell"] svg,
+        button[id*="retell"] img,
+        div[id*="retell-widget-bubble"] svg,
+        div[id*="retell-widget-bubble"] img,
+        button[aria-label*="Chat"] svg,
+        button[aria-label*="chat"] svg,
+        button[aria-label*="Chat"] img,
+        button[aria-label*="chat"] img {
+            opacity: 0 !important;
+            visibility: hidden !important;
             display: none !important;
         }
 
-        #retell-widget-bubble::after {
+        /* Add Cold Lava logo using ::before pseudo-element */
+        button[id*="retell"]::before,
+        div[id*="retell-widget-bubble"]::before,
+        button[aria-label*="Chat"]::before,
+        button[aria-label*="chat"]::before {
             content: '' !important;
             position: absolute !important;
             top: 50% !important;
             left: 50% !important;
             transform: translate(-50%, -50%) !important;
-            width: 40px !important;
-            height: 40px !important;
+            width: 45px !important;
+            height: 45px !important;
             background-image: url('https://cdn.shopify.com/s/files/1/0951/6141/8067/files/LAVA_1.png?v=1753207208') !important;
             background-size: contain !important;
             background-repeat: no-repeat !important;
             background-position: center !important;
-            filter: drop-shadow(0 0 8px rgba(2, 187, 212, 0.6)) !important;
+            filter: drop-shadow(0 0 10px rgba(2, 187, 212, 0.7)) !important;
+            z-index: 999 !important;
+            pointer-events: none !important;
         }
 
         /* Style the widget panel */
-        #retell-widget-iframe {
+        iframe[id*="retell"],
+        [class*="retell-iframe"] {
             border: 1px solid rgba(2, 187, 212, 0.3) !important;
             box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5) !important;
         }
     </style>
 
-    <!-- Script to customize widget branding -->
+    <!-- Script to aggressively customize widget -->
     <script>
-        // Function to customize the Retell widget
-        function customizeRetellWidget() {
-            // Find the widget bubble button
-            const bubble = document.querySelector('#retell-widget-bubble, [id*="retell"], button[aria-label*="chat"], button[class*="retell"]');
+        function forceCustomizeWidget() {
+            // Find ALL possible widget buttons
+            const selectors = [
+                'button[id*="retell"]',
+                'div[id*="retell"]',
+                'button[aria-label*="Chat"]',
+                'button[aria-label*="chat"]',
+                '[class*="retell"]'
+            ];
 
-            if (bubble) {
-                console.log('Found widget bubble:', bubble);
+            selectors.forEach(selector => {
+                const elements = document.querySelectorAll(selector);
+                elements.forEach(bubble => {
+                    console.log('Customizing element:', bubble);
 
-                // Hide all SVGs and images inside the bubble
-                const icons = bubble.querySelectorAll('svg, img');
-                icons.forEach(icon => {
-                    icon.style.display = 'none';
-                });
+                    // Force styles
+                    bubble.style.background = 'linear-gradient(135deg, #02bbd4, #4a90e2)';
+                    bubble.style.position = 'relative';
 
-                // Create and add Cold Lava logo
-                const logo = document.createElement('img');
-                logo.src = 'https://cdn.shopify.com/s/files/1/0951/6141/8067/files/LAVA_1.png?v=1753207208';
-                logo.style.cssText = `
-                    position: absolute !important;
-                    top: 50% !important;
-                    left: 50% !important;
-                    transform: translate(-50%, -50%) !important;
-                    width: 40px !important;
-                    height: 40px !important;
-                    filter: drop-shadow(0 0 8px rgba(2, 187, 212, 0.6)) !important;
-                    pointer-events: none !important;
-                `;
-                bubble.appendChild(logo);
-            }
+                    // Hide existing icons
+                    const icons = bubble.querySelectorAll('svg, img');
+                    icons.forEach(icon => {
+                        icon.style.display = 'none';
+                        icon.style.opacity = '0';
+                        icon.style.visibility = 'hidden';
+                    });
 
-            // Try to customize "Powered by" text in iframe
-            const iframe = document.querySelector('#retell-widget-iframe');
-            if (iframe && iframe.contentDocument) {
-                try {
-                    const poweredBy = iframe.contentDocument.querySelector('[class*="powered"], [class*="footer"]');
-                    if (poweredBy) {
-                        poweredBy.textContent = 'Powered by Cold Lava';
+                    // Check if we already added logo
+                    if (!bubble.querySelector('.cold-lava-custom-logo')) {
+                        const logo = document.createElement('img');
+                        logo.className = 'cold-lava-custom-logo';
+                        logo.src = 'https://cdn.shopify.com/s/files/1/0951/6141/8067/files/LAVA_1.png?v=' + Date.now();
+                        logo.style.cssText = `
+                            position: absolute !important;
+                            top: 50% !important;
+                            left: 50% !important;
+                            transform: translate(-50%, -50%) !important;
+                            width: 45px !important;
+                            height: 45px !important;
+                            filter: drop-shadow(0 0 10px rgba(2, 187, 212, 0.7)) !important;
+                            z-index: 9999 !important;
+                            pointer-events: none !important;
+                        `;
+                        bubble.appendChild(logo);
+                        console.log('Added Cold Lava logo to', bubble);
                     }
-                } catch (e) {
-                    // CORS restriction - can't access iframe content
-                    console.log('Cannot access iframe due to CORS');
-                }
-            }
-        }
-
-        // Run customization multiple times to catch when widget loads
-        setTimeout(customizeRetellWidget, 500);
-        setTimeout(customizeRetellWidget, 1000);
-        setTimeout(customizeRetellWidget, 2000);
-        setTimeout(customizeRetellWidget, 3000);
-
-        // Also run on page load
-        if (document.readyState === 'loading') {
-            document.addEventListener('DOMContentLoaded', () => {
-                setTimeout(customizeRetellWidget, 1000);
+                });
             });
         }
 
-        // Watch for widget button being added to DOM
-        const observer = new MutationObserver((mutations) => {
-            for (const mutation of mutations) {
-                for (const node of mutation.addedNodes) {
-                    if (node.nodeType === 1) { // Element node
-                        if (node.id === 'retell-widget-bubble' || node.matches('[id*="retell"]')) {
-                            customizeRetellWidget();
-                        }
-                    }
-                }
-            }
-        });
+        // Run immediately and repeatedly
+        forceCustomizeWidget();
+        setInterval(forceCustomizeWidget, 500);
 
-        observer.observe(document.body, {
-            childList: true,
-            subtree: true
-        });
+        // Run on load
+        window.addEventListener('load', forceCustomizeWidget);
+
+        // Watch for DOM changes
+        const observer = new MutationObserver(forceCustomizeWidget);
+        observer.observe(document.body, { childList: true, subtree: true });
     </script>
 
     <!-- Meta Pixel Code -->
