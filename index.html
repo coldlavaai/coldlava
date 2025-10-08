@@ -2498,21 +2498,34 @@
     ></script>
 
     <style>
-        /* Aggressively hide Retell button */
+        /* Aggressively hide Retell button - use every possible selector */
         #retell-fab,
         .retell-fab,
         [class*="retell-fab"],
         [id*="retell-fab"],
+        [class*="retell"],
+        [id*="retell"],
         div[title="Chat"],
-        button[title="Chat"] {
+        button[title="Chat"],
+        iframe + div,
+        div[style*="position: fixed"][style*="bottom"],
+        div[style*="z-index: 9999"] {
             display: none !important;
             opacity: 0 !important;
             visibility: hidden !important;
             pointer-events: none !important;
             position: absolute !important;
             left: -99999px !important;
+            top: -99999px !important;
             width: 0 !important;
             height: 0 !important;
+            overflow: hidden !important;
+            clip: rect(0, 0, 0, 0) !important;
+        }
+
+        /* Only show our custom button */
+        #cold-lava-chat-button {
+            display: flex !important;
         }
     </style>
 
