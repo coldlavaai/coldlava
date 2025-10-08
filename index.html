@@ -2497,43 +2497,31 @@
 
     <!-- Custom Retell Widget Styling - Cold Lava Branding -->
     <style>
-        /* Target all possible Retell widget button variations */
-        button[id*="retell"],
-        div[id*="retell-widget-bubble"],
-        button[aria-label*="Chat"],
-        button[aria-label*="chat"],
-        [class*="retell-button"],
-        [class*="retell-widget-button"] {
+        /* Target the Retell FAB button specifically */
+        #retell-fab,
+        .retell-fab {
             background: linear-gradient(135deg, #02bbd4, #4a90e2) !important;
             box-shadow: 0 8px 32px rgba(2, 187, 212, 0.4) !important;
             position: relative !important;
         }
 
-        button[id*="retell"]:hover,
-        div[id*="retell-widget-bubble"]:hover {
+        #retell-fab:hover,
+        .retell-fab:hover {
             transform: scale(1.05) !important;
             box-shadow: 0 12px 40px rgba(2, 187, 212, 0.6) !important;
         }
 
-        /* Hide ALL SVGs and images inside the widget button */
-        button[id*="retell"] svg,
-        button[id*="retell"] img,
-        div[id*="retell-widget-bubble"] svg,
-        div[id*="retell-widget-bubble"] img,
-        button[aria-label*="Chat"] svg,
-        button[aria-label*="chat"] svg,
-        button[aria-label*="Chat"] img,
-        button[aria-label*="chat"] img {
+        /* Hide the robot SVG icon */
+        #retell-fab svg,
+        .retell-fab svg {
             opacity: 0 !important;
             visibility: hidden !important;
             display: none !important;
         }
 
         /* Add Cold Lava logo using ::before pseudo-element */
-        button[id*="retell"]::before,
-        div[id*="retell-widget-bubble"]::before,
-        button[aria-label*="Chat"]::before,
-        button[aria-label*="chat"]::before {
+        #retell-fab::before,
+        .retell-fab::before {
             content: '' !important;
             position: absolute !important;
             top: 50% !important;
@@ -2561,13 +2549,11 @@
     <!-- Script to aggressively customize widget -->
     <script>
         function forceCustomizeWidget() {
-            // Find ALL possible widget buttons
+            // Target the specific Retell FAB button
             const selectors = [
-                'button[id*="retell"]',
-                'div[id*="retell"]',
-                'button[aria-label*="Chat"]',
-                'button[aria-label*="chat"]',
-                '[class*="retell"]'
+                '#retell-fab',
+                '.retell-fab',
+                'div[title="Chat"]'
             ];
 
             selectors.forEach(selector => {
