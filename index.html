@@ -2058,9 +2058,14 @@
                 font-size: 1.8rem;
             }
 
-            /* Grid optimizations */
-            .capabilities-grid,
-            .solutions-grid,
+            /* Grid optimizations - Make capabilities 2 columns, keep team-grid single */
+            .capabilities-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 1rem;
+                width: 100%;
+                padding: 0 1rem;
+            }
+
             .team-grid {
                 grid-template-columns: 1fr;
                 gap: 1.5rem;
@@ -2068,8 +2073,34 @@
                 padding: 0;
             }
 
-            .capability-card,
-            .solution-card,
+            .capability-card {
+                padding: 1.5rem 1rem;
+                transform: none !important;
+                transition: none !important;
+                width: 100%;
+                max-width: 100%;
+                box-sizing: border-box;
+                text-align: center;
+            }
+
+            .capability-card h4 {
+                font-size: 1rem;
+                margin-bottom: 0.5rem;
+                text-align: center;
+            }
+
+            .capability-card p {
+                font-size: 0.8rem;
+                line-height: 1.5;
+                text-align: center;
+            }
+
+            .capability-icon {
+                width: 45px !important;
+                height: 45px !important;
+                margin-bottom: 1rem !important;
+            }
+
             .team-card,
             .strategy-card {
                 padding: 1.5rem;
@@ -2081,11 +2112,82 @@
                 text-align: center;
             }
 
-            .solution-card h4,
-            .solution-card p,
-            .capability-card h4,
-            .capability-card p {
+            /* Hide journey numbers on mobile to reduce crowding */
+            .journey-number {
+                display: none;
+            }
+
+            /* Make journey grid 2x2 on mobile for more compact layout */
+            .journey-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 1rem;
+                padding: 0 1rem;
+            }
+
+            .journey-card {
+                padding: 1.5rem 1rem;
                 text-align: center;
+            }
+
+            .journey-card h4 {
+                font-size: 1.1rem;
+                margin-bottom: 0.5rem;
+            }
+
+            .journey-card p {
+                font-size: 0.85rem;
+                line-height: 1.5;
+            }
+
+            /* Make benefits grid 2 columns on mobile for more compact layout */
+            .benefits-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 1rem;
+                padding: 0 1rem;
+            }
+
+            .benefit-card {
+                padding: 1.5rem 1rem;
+            }
+
+            .benefit-card h4 {
+                font-size: 1rem;
+                margin-bottom: 0.5rem;
+            }
+
+            .benefit-card p {
+                font-size: 0.8rem;
+                line-height: 1.5;
+            }
+
+            .benefit-card img {
+                width: 45px;
+                margin-bottom: 1rem;
+            }
+
+            /* Make solutions grid 2 columns on mobile */
+            .solutions-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 1rem;
+            }
+
+            .solution-card {
+                padding: 1.5rem 1rem;
+            }
+
+            .solution-card h4 {
+                font-size: 1rem;
+                margin-bottom: 0.5rem;
+            }
+
+            .solution-card p {
+                font-size: 0.8rem;
+                line-height: 1.5;
+            }
+
+            .solution-card img {
+                width: 40px;
+                margin-bottom: 1rem;
             }
 
             /* Image optimizations for mobile */
