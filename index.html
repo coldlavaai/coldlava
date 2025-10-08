@@ -2536,30 +2536,83 @@
         }
     </style>
 
-    <!-- Script to customize "Powered by" text -->
+    <!-- Script to customize widget branding -->
     <script>
-        // Wait for the iframe to load and customize the footer
-        setTimeout(() => {
-            const checkIframe = setInterval(() => {
-                const iframe = document.querySelector('#retell-widget-iframe');
-                if (iframe && iframe.contentDocument) {
-                    try {
-                        const poweredBy = iframe.contentDocument.querySelector('[class*="powered"], [class*="footer"]');
-                        if (poweredBy) {
-                            poweredBy.textContent = 'Powered by Cold Lava';
-                            clearInterval(checkIframe);
+        // Function to customize the Retell widget
+        function customizeRetellWidget() {
+            // Find the widget bubble button
+            const bubble = document.querySelector('#retell-widget-bubble, [id*="retell"], button[aria-label*="chat"], button[class*="retell"]');
+
+            if (bubble) {
+                console.log('Found widget bubble:', bubble);
+
+                // Hide all SVGs and images inside the bubble
+                const icons = bubble.querySelectorAll('svg, img');
+                icons.forEach(icon => {
+                    icon.style.display = 'none';
+                });
+
+                // Create and add Cold Lava logo
+                const logo = document.createElement('img');
+                logo.src = 'https://cdn.shopify.com/s/files/1/0951/6141/8067/files/LAVA_1.png?v=1753207208';
+                logo.style.cssText = `
+                    position: absolute !important;
+                    top: 50% !important;
+                    left: 50% !important;
+                    transform: translate(-50%, -50%) !important;
+                    width: 40px !important;
+                    height: 40px !important;
+                    filter: drop-shadow(0 0 8px rgba(2, 187, 212, 0.6)) !important;
+                    pointer-events: none !important;
+                `;
+                bubble.appendChild(logo);
+            }
+
+            // Try to customize "Powered by" text in iframe
+            const iframe = document.querySelector('#retell-widget-iframe');
+            if (iframe && iframe.contentDocument) {
+                try {
+                    const poweredBy = iframe.contentDocument.querySelector('[class*="powered"], [class*="footer"]');
+                    if (poweredBy) {
+                        poweredBy.textContent = 'Powered by Cold Lava';
+                    }
+                } catch (e) {
+                    // CORS restriction - can't access iframe content
+                    console.log('Cannot access iframe due to CORS');
+                }
+            }
+        }
+
+        // Run customization multiple times to catch when widget loads
+        setTimeout(customizeRetellWidget, 500);
+        setTimeout(customizeRetellWidget, 1000);
+        setTimeout(customizeRetellWidget, 2000);
+        setTimeout(customizeRetellWidget, 3000);
+
+        // Also run on page load
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', () => {
+                setTimeout(customizeRetellWidget, 1000);
+            });
+        }
+
+        // Watch for widget button being added to DOM
+        const observer = new MutationObserver((mutations) => {
+            for (const mutation of mutations) {
+                for (const node of mutation.addedNodes) {
+                    if (node.nodeType === 1) { // Element node
+                        if (node.id === 'retell-widget-bubble' || node.matches('[id*="retell"]')) {
+                            customizeRetellWidget();
                         }
-                    } catch (e) {
-                        // CORS restriction - can't access iframe content
-                        // Need to use CSS instead
-                        clearInterval(checkIframe);
                     }
                 }
-            }, 500);
+            }
+        });
 
-            // Stop checking after 10 seconds
-            setTimeout(() => clearInterval(checkIframe), 10000);
-        }, 1000);
+        observer.observe(document.body, {
+            childList: true,
+            subtree: true
+        });
     </script>
 
     <!-- Meta Pixel Code -->
