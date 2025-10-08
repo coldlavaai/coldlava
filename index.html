@@ -35,6 +35,13 @@
             box-sizing: border-box;
         }
 
+        html {
+            scroll-behavior: smooth;
+            -webkit-text-size-adjust: 100%;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
         body {
             font-family: 'Montserrat', sans-serif;
             background: var(--gradient-main);
@@ -42,6 +49,8 @@
             line-height: 1.6;
             overflow-x: hidden;
             position: relative;
+            width: 100%;
+            max-width: 100vw;
         }
 
         /* Custom Luxury Cursor - REMOVED FOR PERFORMANCE */
@@ -1780,24 +1789,27 @@
 
             /* MOBILE HERO SECTION - PROPERLY CONTAINED */
             .hero {
-                padding: 4rem 0 2rem;
+                padding: 5rem 0 2rem;
                 min-height: 100vh;
+                min-height: 100dvh; /* Dynamic viewport height for mobile browsers */
                 width: 100%;
                 max-width: 100vw;
                 display: flex;
                 align-items: center;
                 justify-content: center;
-                overflow: hidden;
+                overflow-x: hidden;
+                box-sizing: border-box;
             }
 
             .hero-content {
                 width: 100%;
                 max-width: 100%;
-                padding: 0 1.5rem;
+                padding: 0 1rem;
                 text-align: center;
                 display: flex;
                 flex-direction: column;
                 align-items: center;
+                box-sizing: border-box;
             }
 
             .hero-subtitle {
@@ -1864,9 +1876,11 @@
             /* MOBILE SERVICE PREVIEW CARDS - PROPERLY CONTAINED */
             .service-preview {
                 width: 100%;
-                max-width: 100%;
-                padding: 0 1rem;
+                max-width: 100vw;
+                padding: 2rem 0;
                 margin-top: 2rem;
+                overflow-x: hidden;
+                box-sizing: border-box;
             }
 
             .services-wrapper {
@@ -1876,20 +1890,28 @@
                 flex-direction: column;
                 gap: 1.5rem;
                 align-items: center;
+                padding: 0 1rem;
+                margin: 0;
+                box-sizing: border-box;
             }
 
             .service-preview-card {
                 width: 100%;
-                max-width: calc(100% - 2rem);
-                padding: 1.5rem;
+                max-width: 100%;
+                padding: 1.5rem 1rem;
                 margin: 0;
                 border-radius: 20px;
                 background: rgba(255, 255, 255, 0.03);
                 backdrop-filter: blur(15px);
+                -webkit-backdrop-filter: blur(15px); /* Safari support */
                 border: 1px solid rgba(255, 255, 255, 0.1);
                 color: white;
                 text-align: center;
                 box-sizing: border-box;
+                overflow: hidden;
+                display: flex;
+                flex-direction: column;
+                min-height: auto;
             }
 
             .service-preview-card:hover {
@@ -1897,28 +1919,51 @@
             }
 
             .service-preview-title {
-                font-size: 1.5rem;
-                margin-bottom: 1rem;
+                font-size: 1.3rem;
+                margin-bottom: 0.8rem;
                 width: 100%;
                 word-wrap: break-word;
                 overflow-wrap: break-word;
+                hyphens: auto;
+                line-height: 1.3;
             }
 
             .service-preview-subtitle,
             .service-preview-description {
-                font-size: 0.9rem;
-                line-height: 1.6;
-                margin-bottom: 1rem;
+                font-size: 0.85rem;
+                line-height: 1.5;
+                margin-bottom: 0.8rem;
                 width: 100%;
                 word-wrap: break-word;
                 overflow-wrap: break-word;
+                hyphens: auto;
             }
 
             .service-preview-features {
                 width: 100%;
-                padding: 0;
+                padding: 0 0 0 1rem;
                 text-align: left;
-                font-size: 0.85rem;
+                font-size: 0.8rem;
+                line-height: 1.6;
+                margin-bottom: 0.8rem;
+            }
+
+            .service-preview-features li {
+                margin-bottom: 0.4rem;
+                word-wrap: break-word;
+                overflow-wrap: break-word;
+            }
+
+            .service-preview-cta {
+                margin-top: auto;
+                padding-top: 1rem;
+                font-size: 0.9rem;
+            }
+
+            .service-preview-icon {
+                width: 40px;
+                height: auto;
+                margin-bottom: 1rem;
             }
 
             /* Section optimizations */
@@ -1935,23 +1980,44 @@
             .ai-agents,
             .team-integration,
             .reactivation,
+            .consulting,
             .about {
                 padding: 4rem 1rem;
+                width: 100%;
+                max-width: 100vw;
+                overflow-x: hidden;
+                box-sizing: border-box;
             }
 
             .ai-hero,
+            .consulting-hero,
             .team-integration-inner {
                 flex-direction: column;
                 text-align: center;
                 gap: 2rem;
+                padding: 2rem 1rem;
             }
 
-            .ai-hero-title {
-                font-size: 2rem;
+            .ai-hero-title,
+            .consulting-title {
+                font-size: 1.8rem;
+                line-height: 1.2;
+                word-wrap: break-word;
             }
 
-            .ai-hero-subtitle {
-                font-size: 1.5rem;
+            .ai-hero-subtitle,
+            .consulting-subtitle {
+                font-size: 1.3rem;
+                line-height: 1.3;
+                word-wrap: break-word;
+            }
+
+            .ai-hero-description,
+            .consulting-description {
+                font-size: 0.95rem;
+                line-height: 1.6;
+                word-wrap: break-word;
+                padding: 0 0.5rem;
             }
 
             .reactivation-title {
@@ -1968,6 +2034,8 @@
             .team-grid {
                 grid-template-columns: 1fr;
                 gap: 1.5rem;
+                width: 100%;
+                padding: 0;
             }
 
             .capability-card,
@@ -1977,6 +2045,28 @@
                 padding: 1.5rem;
                 transform: none !important;
                 transition: none !important;
+                width: 100%;
+                max-width: 100%;
+                box-sizing: border-box;
+            }
+
+            /* Image optimizations for mobile */
+            img {
+                max-width: 100%;
+                height: auto;
+                display: block;
+            }
+
+            .capability-icon,
+            .solution-icon {
+                width: 50px;
+                height: 50px;
+            }
+
+            .ai-hero-image img,
+            .sophie-img {
+                max-width: 280px;
+                margin: 0 auto;
             }
 
             .capability-card:hover,
@@ -2026,9 +2116,34 @@
             /* Touch-friendly sizing */
             .cta-button,
             .team-btn,
-            .sophie-cta {
+            .sophie-cta,
+            .consulting-cta-btn,
+            .consulting-cta-button,
+            .reactivation-cta {
                 min-height: 48px;
                 touch-action: manipulation;
+            }
+
+            /* Consulting mobile optimizations */
+            .consulting-logo,
+            .ai-hero-logo {
+                max-width: 80px;
+                height: auto;
+            }
+
+            .consulting-final-cta {
+                padding: 2rem 1rem;
+                margin: 2rem 1rem;
+            }
+
+            .consulting-final-cta h2 {
+                font-size: 1.6rem;
+                line-height: 1.3;
+            }
+
+            .consulting-final-cta p {
+                font-size: 0.95rem;
+                line-height: 1.6;
             }
 
             /* Reduce motion for better performance */
