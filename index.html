@@ -2482,7 +2482,38 @@
 
     </style>
 
-    <!-- No Retell widget - using custom backend proxy instead -->
+    <!-- Retell Widget -->
+    <script
+        id="retell-widget"
+        src="https://dashboard.retellai.com/retell-widget.js"
+        type="module"
+        data-public-key="public_key_09bbd18bfb973540a625d"
+        data-agent-id="agent_81da82d9b3ff61a0d0918ae0f2"
+        data-title="Sophie • AI Assistant"
+        data-bot-name="Sophie"
+        data-color="#02bbd4"
+        data-auto-open="false"
+        data-show-ai-popup="false"
+    ></script>
+
+    <style>
+        /* Aggressively hide Retell button */
+        #retell-fab,
+        .retell-fab,
+        [class*="retell-fab"],
+        [id*="retell-fab"],
+        div[title="Chat"],
+        button[title="Chat"] {
+            display: none !important;
+            opacity: 0 !important;
+            visibility: hidden !important;
+            pointer-events: none !important;
+            position: absolute !important;
+            left: -99999px !important;
+            width: 0 !important;
+            height: 0 !important;
+        }
+    </style>
 
     'https://connect.facebook.net/en_US/fbevents.js');
     fbq('init', '1680728342604919');
@@ -3280,50 +3311,17 @@
 </body>
 </html>
 
-    <!-- Custom Cold Lava Chat Widget - 100% Custom Design -->
-    <div id="cold-lava-widget">
-        <!-- Chat Button -->
-        <button id="cold-lava-chat-button" aria-label="Chat with Sophie">
-            <img src="https://cdn.shopify.com/s/files/1/0951/6141/8067/files/LAVA_1.png?v=1753207208" alt="Cold Lava">
-        </button>
-
-        <!-- Chat Panel -->
-        <div id="cold-lava-chat-panel" class="hidden">
-            <div class="chat-header">
-                <div class="chat-header-info">
-                    <img src="https://cdn.shopify.com/s/files/1/0951/6141/8067/files/LAVA_1.png?v=1753207208" alt="Sophie" class="header-logo">
-                    <h3>Sophie • AI Assistant</h3>
-                </div>
-                <button id="close-chat" aria-label="Close">&times;</button>
-            </div>
-            <div id="chat-messages" class="chat-messages">
-                <div class="message assistant">
-                    <p>Hi! This is Sophie from Cold Lava. What can I help you with?</p>
-                </div>
-            </div>
-            <div class="chat-input">
-                <input type="text" id="message-input" placeholder="Ask a detailed question..." />
-                <button id="send-button" aria-label="Send">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
-                        <path d="M22 2L11 13M22 2L15 22L11 13M22 2L2 8L11 13" stroke="currentColor" stroke-width="2"/>
-                    </svg>
-                </button>
-            </div>
-            <div class="chat-footer">Powered by Cold Lava</div>
-        </div>
-    </div>
+    <!-- Custom Cold Lava Chat Button (triggers Retell widget) -->
+    <button id="cold-lava-chat-button" aria-label="Chat with Sophie">
+        <img src="https://cdn.shopify.com/s/files/1/0951/6141/8067/files/LAVA_1.png?v=1753207208" alt="Cold Lava">
+    </button>
 
     <style>
-        #cold-lava-widget {
+        /* Custom Cold Lava Chat Button */
+        #cold-lava-chat-button {
             position: fixed;
             bottom: 30px;
             right: 30px;
-            z-index: 99999;
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-        }
-
-        /* Chat Button */
-        #cold-lava-chat-button {
             width: 70px;
             height: 70px;
             border-radius: 50%;
@@ -3335,6 +3333,7 @@
             align-items: center;
             justify-content: center;
             transition: all 0.3s ease;
+            z-index: 99999;
         }
 
         #cold-lava-chat-button:hover {
@@ -3349,183 +3348,11 @@
             filter: drop-shadow(0 0 10px rgba(2, 187, 212, 0.7));
         }
 
-        /* Chat Panel */
-        #cold-lava-chat-panel {
-            position: fixed;
-            bottom: 120px;
-            right: 30px;
-            width: 380px;
-            max-width: calc(100vw - 60px);
-            height: 600px;
-            max-height: calc(100vh - 150px);
-            background: rgba(10, 10, 33, 0.98);
-            backdrop-filter: blur(20px);
-            border-radius: 16px;
-            border: 1px solid rgba(2, 187, 212, 0.3);
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
-            display: flex;
-            flex-direction: column;
-            transition: all 0.3s ease;
-        }
-
-        #cold-lava-chat-panel.hidden {
-            opacity: 0;
-            transform: translateY(20px);
-            pointer-events: none;
-        }
-
-        /* Header */
-        .chat-header {
-            padding: 20px;
-            background: linear-gradient(135deg, #02bbd4, #4a90e2);
-            border-radius: 16px 16px 0 0;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .chat-header-info {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-        }
-
-        .header-logo {
-            width: 32px;
-            height: auto;
-        }
-
-        .chat-header h3 {
-            margin: 0;
-            color: white;
-            font-size: 16px;
-            font-weight: 600;
-        }
-
-        #close-chat {
-            background: none;
-            border: none;
-            color: white;
-            font-size: 28px;
-            cursor: pointer;
-            width: 32px;
-            height: 32px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border-radius: 50%;
-            transition: background 0.2s;
-        }
-
-        #close-chat:hover {
-            background: rgba(255, 255, 255, 0.2);
-        }
-
-        /* Messages */
-        .chat-messages {
-            flex: 1;
-            overflow-y: auto;
-            padding: 20px;
-            display: flex;
-            flex-direction: column;
-            gap: 12px;
-        }
-
-        .message {
-            padding: 12px 16px;
-            border-radius: 12px;
-            max-width: 80%;
-            animation: slideIn 0.3s ease;
-        }
-
-        @keyframes slideIn {
-            from { opacity: 0; transform: translateY(10px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        .message.assistant {
-            background: rgba(255, 255, 255, 0.08);
-            align-self: flex-start;
-            color: white;
-            border: 1px solid rgba(255, 255, 255, 0.12);
-        }
-
-        .message.user {
-            background: linear-gradient(135deg, #02bbd4, #4a90e2);
-            align-self: flex-end;
-            color: white;
-        }
-
-        .message p {
-            margin: 0;
-            font-size: 14px;
-            line-height: 1.5;
-        }
-
-        /* Input */
-        .chat-input {
-            padding: 16px 20px;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            display: flex;
-            gap: 12px;
-        }
-
-        #message-input {
-            flex: 1;
-            padding: 12px 16px;
-            border-radius: 24px;
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            background: rgba(255, 255, 255, 0.08);
-            color: white;
-            font-size: 14px;
-            outline: none;
-        }
-
-        #message-input::placeholder {
-            color: rgba(255, 255, 255, 0.5);
-        }
-
-        #message-input:focus {
-            border-color: #02bbd4;
-            box-shadow: 0 0 0 2px rgba(2, 187, 212, 0.2);
-        }
-
-        #send-button {
-            width: 44px;
-            height: 44px;
-            border-radius: 50%;
-            background: linear-gradient(135deg, #02bbd4, #4a90e2);
-            border: none;
-            color: white;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: all 0.2s;
-        }
-
-        #send-button:hover {
-            transform: scale(1.05);
-            box-shadow: 0 4px 12px rgba(2, 187, 212, 0.4);
-        }
-
-        /* Footer */
-        .chat-footer {
-            padding: 12px 20px;
-            text-align: center;
-            font-size: 12px;
-            color: rgba(255, 255, 255, 0.5);
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-        }
-
         /* Mobile */
         @media (max-width: 768px) {
-            #cold-lava-widget {
+            #cold-lava-chat-button {
                 bottom: 20px;
                 right: 20px;
-            }
-
-            #cold-lava-chat-button {
                 width: 60px;
                 height: 60px;
             }
@@ -3533,126 +3360,66 @@
             #cold-lava-chat-button img {
                 width: 40px;
             }
-
-            #cold-lava-chat-panel {
-                bottom: 100px;
-                right: 20px;
-                left: 20px;
-                width: auto;
-            }
         }
     </style>
 
     <script>
+        // Wait for Retell widget to load, then connect our custom button to it
         (function() {
-            // Configuration
-            const API_ENDPOINT = '/api/chat'; // Update this when deployed
+            const customButton = document.getElementById('cold-lava-chat-button');
+            let retellButton = null;
+            let attempts = 0;
+            const maxAttempts = 50; // Try for 5 seconds
 
-            // Elements
-            const chatButton = document.getElementById('cold-lava-chat-button');
-            const chatPanel = document.getElementById('cold-lava-chat-panel');
-            const closeButton = document.getElementById('close-chat');
-            const sendButton = document.getElementById('send-button');
-            const messageInput = document.getElementById('message-input');
-            const messagesContainer = document.getElementById('chat-messages');
+            // Aggressively hide Retell's button
+            function hideRetellButton() {
+                const buttons = document.querySelectorAll(
+                    '#retell-fab, .retell-fab, [class*="retell"], [id*="retell"], div[title="Chat"], button[title="Chat"]'
+                );
+                buttons.forEach(btn => {
+                    if (btn !== customButton && btn.tagName !== 'SCRIPT' && btn.tagName !== 'STYLE') {
+                        btn.style.display = 'none';
+                        btn.style.opacity = '0';
+                        btn.style.visibility = 'hidden';
+                        btn.style.pointerEvents = 'none';
+                        btn.style.position = 'absolute';
+                        btn.style.left = '-99999px';
 
-            let chatId = null;
-
-            // Toggle chat panel
-            chatButton.addEventListener('click', () => {
-                chatPanel.classList.toggle('hidden');
-                if (!chatPanel.classList.contains('hidden')) {
-                    messageInput.focus();
-                    // Initialize chat if not already done
-                    if (!chatId) {
-                        initializeChat();
+                        if (!retellButton && btn.tagName === 'BUTTON') {
+                            retellButton = btn;
+                        }
                     }
-                }
-            });
+                });
+            }
 
-            closeButton.addEventListener('click', () => {
-                chatPanel.classList.add('hidden');
-            });
+            // Continuously hide Retell button
+            setInterval(hideRetellButton, 100);
 
-            // Initialize chat session
-            async function initializeChat() {
-                try {
-                    const response = await fetch(API_ENDPOINT, {
-                        method: 'POST',
-                        headers: { 'Content-Type': 'application/json' },
-                        body: JSON.stringify({ action: 'create' })
+            // Find and connect to Retell button
+            function setupClickHandler() {
+                hideRetellButton();
+
+                if (retellButton) {
+                    customButton.addEventListener('click', () => {
+                        retellButton.click();
                     });
-
-                    if (response.ok) {
-                        const data = await response.json();
-                        chatId = data.chat_id;
-                        console.log('Chat initialized:', chatId);
+                    console.log('✓ Cold Lava button connected to Retell widget');
+                } else {
+                    attempts++;
+                    if (attempts < maxAttempts) {
+                        setTimeout(setupClickHandler, 100);
                     } else {
-                        console.error('Failed to initialize chat');
-                        addMessage('Sorry, I\'m having trouble connecting. Please try again later.', 'assistant');
+                        console.warn('Could not find Retell button');
                     }
-                } catch (error) {
-                    console.error('Chat initialization error:', error);
-                    addMessage('Sorry, I\'m having trouble connecting. Please try again later.', 'assistant');
                 }
             }
 
-            // Send message
-            async function sendMessage() {
-                const message = messageInput.value.trim();
-                if (!message || !chatId) return;
-
-                // Add user message
-                addMessage(message, 'user');
-                messageInput.value = '';
-
-                // Show typing indicator
-                const typingDiv = addMessage('...', 'assistant');
-
-                try {
-                    const response = await fetch(API_ENDPOINT, {
-                        method: 'POST',
-                        headers: { 'Content-Type': 'application/json' },
-                        body: JSON.stringify({
-                            action: 'message',
-                            chatId: chatId,
-                            message: message
-                        })
-                    });
-
-                    // Remove typing indicator
-                    typingDiv.remove();
-
-                    if (response.ok) {
-                        const data = await response.json();
-                        addMessage(data.response || data.message || 'I received your message!', 'assistant');
-                    } else {
-                        addMessage('Sorry, I encountered an error. Please try again.', 'assistant');
-                    }
-                } catch (error) {
-                    typingDiv.remove();
-                    console.error('Send message error:', error);
-                    addMessage('Sorry, I encountered an error. Please try again.', 'assistant');
-                }
+            // Start when DOM is ready
+            if (document.readyState === 'loading') {
+                document.addEventListener('DOMContentLoaded', setupClickHandler);
+            } else {
+                setupClickHandler();
             }
-
-            // Add message to UI
-            function addMessage(text, type) {
-                const messageDiv = document.createElement('div');
-                messageDiv.className = `message ${type}`;
-                const p = document.createElement('p');
-                p.textContent = text;
-                messageDiv.appendChild(p);
-                messagesContainer.appendChild(messageDiv);
-                messagesContainer.scrollTop = messagesContainer.scrollHeight;
-                return messageDiv;
-            }
-
-            // Event listeners
-            sendButton.addEventListener('click', sendMessage);
-            messageInput.addEventListener('keypress', (e) => {
-                if (e.key === 'Enter') sendMessage();
-            });
         })();
     </script>
 </body>
