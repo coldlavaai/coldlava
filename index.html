@@ -2508,12 +2508,59 @@
             box-shadow: 0 12px 40px rgba(2, 187, 212, 0.6) !important;
         }
 
+        /* Replace robot icon with Cold Lava logo in the widget button */
+        #retell-widget-bubble svg,
+        #retell-widget-bubble img {
+            display: none !important;
+        }
+
+        #retell-widget-bubble::after {
+            content: '' !important;
+            position: absolute !important;
+            top: 50% !important;
+            left: 50% !important;
+            transform: translate(-50%, -50%) !important;
+            width: 40px !important;
+            height: 40px !important;
+            background-image: url('https://cdn.shopify.com/s/files/1/0951/6141/8067/files/LAVA_1.png?v=1753207208') !important;
+            background-size: contain !important;
+            background-repeat: no-repeat !important;
+            background-position: center !important;
+            filter: drop-shadow(0 0 8px rgba(2, 187, 212, 0.6)) !important;
+        }
+
         /* Style the widget panel */
         #retell-widget-iframe {
             border: 1px solid rgba(2, 187, 212, 0.3) !important;
             box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5) !important;
         }
     </style>
+
+    <!-- Script to customize "Powered by" text -->
+    <script>
+        // Wait for the iframe to load and customize the footer
+        setTimeout(() => {
+            const checkIframe = setInterval(() => {
+                const iframe = document.querySelector('#retell-widget-iframe');
+                if (iframe && iframe.contentDocument) {
+                    try {
+                        const poweredBy = iframe.contentDocument.querySelector('[class*="powered"], [class*="footer"]');
+                        if (poweredBy) {
+                            poweredBy.textContent = 'Powered by Cold Lava';
+                            clearInterval(checkIframe);
+                        }
+                    } catch (e) {
+                        // CORS restriction - can't access iframe content
+                        // Need to use CSS instead
+                        clearInterval(checkIframe);
+                    }
+                }
+            }, 500);
+
+            // Stop checking after 10 seconds
+            setTimeout(() => clearInterval(checkIframe), 10000);
+        }, 1000);
+    </script>
 
     <!-- Meta Pixel Code -->
     <script>
