@@ -3293,9 +3293,23 @@
     </button>
 
     <style>
-        /* Hide Retell's default button */
-        #retell-fab, .retell-fab, div[title="Chat"], button[title="Chat"] {
+        /* AGGRESSIVELY Hide Retell's default button */
+        #retell-fab,
+        .retell-fab,
+        div[title="Chat"],
+        button[title="Chat"],
+        div.retell-fab,
+        [class*="retell-fab"],
+        [id*="retell-fab"] {
             display: none !important;
+            opacity: 0 !important;
+            visibility: hidden !important;
+            pointer-events: none !important;
+            position: absolute !important;
+            left: -99999px !important;
+            width: 0 !important;
+            height: 0 !important;
+            overflow: hidden !important;
         }
 
         /* Custom Cold Lava Button */
@@ -3345,28 +3359,54 @@
     </style>
 
     <script>
-        // Click handler to trigger Retell widget
-        document.addEventListener('DOMContentLoaded', () => {
+        // Hide Retell button and setup click handler
+        (function() {
             const customButton = document.getElementById('cold-lava-chat-button');
+            let retellButton = null;
 
-            // Wait for Retell widget to load
-            function waitForRetell() {
-                const retellButton = document.querySelector('#retell-fab, .retell-fab, div[title="Chat"]');
+            // Function to hide Retell button
+            function hideRetellButton() {
+                const buttons = document.querySelectorAll('#retell-fab, .retell-fab, div[title="Chat"], [class*="retell-fab"]');
+                buttons.forEach(btn => {
+                    btn.style.display = 'none';
+                    btn.style.opacity = '0';
+                    btn.style.visibility = 'hidden';
+                    btn.style.pointerEvents = 'none';
+                    btn.style.position = 'absolute';
+                    btn.style.left = '-99999px';
+
+                    // Store reference for clicking
+                    if (!retellButton) {
+                        retellButton = btn;
+                        console.log('Found Retell button, hiding it');
+                    }
+                });
+            }
+
+            // Hide immediately and continuously check
+            hideRetellButton();
+            setInterval(hideRetellButton, 100);
+
+            // Wait for Retell to be ready then add click handler
+            function setupClickHandler() {
                 if (retellButton) {
-                    console.log('Retell widget found and ready');
-
                     customButton.addEventListener('click', () => {
+                        console.log('Cold Lava button clicked, triggering Retell');
                         retellButton.click();
                     });
+                    console.log('Click handler ready');
                 } else {
-                    // Try again after 500ms
-                    setTimeout(waitForRetell, 500);
+                    setTimeout(setupClickHandler, 500);
                 }
             }
 
-            // Start checking for Retell widget
-            waitForRetell();
-        });
+            // Setup after DOM loads
+            if (document.readyState === 'loading') {
+                document.addEventListener('DOMContentLoaded', setupClickHandler);
+            } else {
+                setupClickHandler();
+            }
+        })();
     </script>
 </body>
 </html>
