@@ -2618,8 +2618,15 @@
         window.addEventListener('load', forceCustomizeWidget);
 
         // Watch for DOM changes
-        const observer = new MutationObserver(forceCustomizeWidget);
-        observer.observe(document.body, { childList: true, subtree: true });
+        const widgetObserver = new MutationObserver(forceCustomizeWidget);
+        // Wait for body to be available before observing
+        if (document.body) {
+            widgetObserver.observe(document.body, { childList: true, subtree: true });
+        } else {
+            document.addEventListener('DOMContentLoaded', () => {
+                widgetObserver.observe(document.body, { childList: true, subtree: true });
+            });
+        }
     </script>
 
     <!-- Meta Pixel Code -->
