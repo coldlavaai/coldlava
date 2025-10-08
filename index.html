@@ -2503,6 +2503,7 @@
             background: linear-gradient(135deg, #02bbd4, #4a90e2) !important;
             box-shadow: 0 8px 32px rgba(2, 187, 212, 0.4) !important;
             position: relative !important;
+            overflow: visible !important;
         }
 
         #retell-fab:hover,
@@ -2511,30 +2512,35 @@
             box-shadow: 0 12px 40px rgba(2, 187, 212, 0.6) !important;
         }
 
-        /* Hide the robot SVG icon */
+        /* Completely hide and remove the robot SVG */
         #retell-fab svg,
-        .retell-fab svg {
+        .retell-fab svg,
+        #retell-fab svg *,
+        .retell-fab svg * {
             opacity: 0 !important;
             visibility: hidden !important;
             display: none !important;
+            fill: transparent !important;
+            width: 0 !important;
+            height: 0 !important;
         }
 
-        /* Add Cold Lava logo using ::before pseudo-element */
-        #retell-fab::before,
-        .retell-fab::before {
+        /* Add Cold Lava logo using ::after (higher z-index than ::before) */
+        #retell-fab::after,
+        .retell-fab::after {
             content: '' !important;
             position: absolute !important;
             top: 50% !important;
             left: 50% !important;
             transform: translate(-50%, -50%) !important;
-            width: 45px !important;
-            height: 45px !important;
+            width: 50px !important;
+            height: 50px !important;
             background-image: url('https://cdn.shopify.com/s/files/1/0951/6141/8067/files/LAVA_1.png?v=1753207208') !important;
             background-size: contain !important;
             background-repeat: no-repeat !important;
             background-position: center !important;
-            filter: drop-shadow(0 0 10px rgba(2, 187, 212, 0.7)) !important;
-            z-index: 999 !important;
+            filter: drop-shadow(0 0 12px rgba(2, 187, 212, 0.8)) !important;
+            z-index: 99999 !important;
             pointer-events: none !important;
         }
 
