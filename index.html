@@ -2516,13 +2516,18 @@
         #retell-fab svg,
         .retell-fab svg,
         #retell-fab svg *,
-        .retell-fab svg * {
+        .retell-fab svg *,
+        #retell-fab path,
+        .retell-fab path {
             opacity: 0 !important;
             visibility: hidden !important;
             display: none !important;
             fill: transparent !important;
+            stroke: transparent !important;
             width: 0 !important;
             height: 0 !important;
+            position: absolute !important;
+            left: -9999px !important;
         }
 
         /* Add Cold Lava logo using ::after (higher z-index than ::before) */
