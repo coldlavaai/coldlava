@@ -2482,7 +2482,7 @@
 
     </style>
 
-    <!-- Retell Widget (Hidden) -->
+    <!-- Retell Widget (with auto-open disabled) -->
     <script
         id="retell-widget"
         src="https://dashboard.retellai.com/retell-widget.js"
@@ -2492,7 +2492,16 @@
         data-title="Sophie • AI Assistant"
         data-bot-name="Sophie"
         data-color="#02bbd4"
+        data-auto-open="false"
+        data-show-ai-popup="false"
     ></script>
+
+    <style>
+        /* Force hide Retell button immediately on load */
+        #retell-fab, .retell-fab, [class*="retell-fab"], [id*="retell"] {
+            display: none !important;
+        }
+    </style>
 
     'https://connect.facebook.net/en_US/fbevents.js');
     fbq('init', '1680728342604919');
