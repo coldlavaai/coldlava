@@ -1946,10 +1946,11 @@
                 color: white;
                 text-align: center;
                 box-sizing: border-box;
-                overflow: hidden;
+                overflow: visible;
                 display: flex;
                 flex-direction: column;
                 min-height: auto;
+                height: auto;
             }
 
             .service-preview-card:hover {
@@ -1968,29 +1969,32 @@
 
             .service-preview-subtitle,
             .service-preview-description {
-                display: none; /* Hide block text on mobile */
-            }
-
-            .service-preview-features {
+                font-size: 0.9rem;
+                line-height: 1.6;
+                margin-bottom: 1.5rem;
                 width: 100%;
-                padding: 0;
-                text-align: center;
-                list-style: none;
-                font-size: 0.85rem;
-                line-height: 1.7;
-                margin-bottom: 1rem;
-            }
-
-            .service-preview-features li {
-                margin-bottom: 0.6rem;
                 word-wrap: break-word;
                 overflow-wrap: break-word;
             }
 
+            .service-preview-features {
+                display: none; /* Hide bullet points on mobile */
+            }
+
             .service-preview-cta {
-                margin-top: auto;
-                padding-top: 1rem;
-                font-size: 0.9rem;
+                width: 100%;
+                max-width: 100%;
+                padding: 0.9rem 1rem;
+                font-size: 0.95rem;
+                margin-top: 0;
+                box-sizing: border-box;
+                display: block;
+                text-align: center;
+                transform: none !important;
+            }
+
+            .service-preview-cta:hover {
+                transform: translateY(-2px) !important;
             }
 
             .service-preview-icon {
