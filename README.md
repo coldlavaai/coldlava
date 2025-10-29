@@ -22,12 +22,17 @@ Automated mortgage renewal engagement system that:
 
 ## 📚 Documentation
 
-### Start Here
+### 🎯 For Presenting to Anthony
+- **[PRESENTATION.md](PRESENTATION.md)** ⭐ - Full slide deck (40+ slides)
+- **[WORKFLOW_DIAGRAM.md](WORKFLOW_DIAGRAM.md)** ⭐ - Visual system architecture & flows
+- **[HOW_TO_PRESENT.md](HOW_TO_PRESENT.md)** ⭐ - Guide for Oliver on how to present
+
+### 📄 Client-Facing Documents
 - **[One-Page Summary](KTFS_one_page_summary.md)** - Executive overview for Anthony
 - **[Questions for Anthony](KTFS_questions_for_anthony.md)** - Pre-build information needed
 - **[SMS Templates](KTFS_sms_templates.md)** - Message templates for approval
 
-### Build & Technical
+### 🔧 Build & Technical
 - **[1-Week Build Plan](KTFS_one_week_build_plan.md)** - Day-by-day development schedule
 - **[Technical Integration Guide](KTFS_technical_integration_guide.md)** - Deep dive into APIs and architecture
 - **[Project Scope](KTFS_project_scope.md)** - Complete requirements document
