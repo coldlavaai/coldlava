@@ -1,0 +1,3304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, viewport-fit=cover">
+    <meta name="theme-color" content="#0a0a33">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="facebook-domain-verification" content="hdtkd5ibfhw38qupi5w7oyrf8ofikm" />
+    <title>Cold Lava AI - Human Led Automation Built For Business</title>
+    <link rel="icon" type="image/png" href="favicon.png">
+    <link rel="apple-touch-icon" href="favicon.png">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-bg: #0a0a33;
+            --secondary-bg: #1a1a4a;
+            --accent-blue: #02bbd4;
+            --accent-yellow: #ffe14d;
+            --accent-pink: #ff44cc;
+            --accent-purple: #8a2be2;
+            --accent-gold: #ffd700;
+            --text-light: #ffffff;
+            --text-gray: #cccccc;
+            --text-muted: #aaaaaa;
+            --gradient-blue: linear-gradient(135deg, #02bbd4, #4a90e2);
+            --gradient-yellow: linear-gradient(135deg, #ffe14d, #ffb347);
+            --gradient-pink: linear-gradient(135deg, #ff44cc, #e73c7e);
+            --gradient-gold: linear-gradient(135deg, #ffd700, #ffed4e);
+            --gradient-main: linear-gradient(135deg, #0a0a33 0%, #1a1a4a 50%, #2a2a5a 100%);
+            --luxury-gradient: linear-gradient(45deg, #02bbd4, #ffe14d, #ff44cc, #8a2be2, #ffd700);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            -webkit-text-size-adjust: 100%;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background: var(--gradient-main);
+            color: var(--text-light);
+            line-height: 1.6;
+            overflow-x: hidden;
+            position: relative;
+            width: 100%;
+            max-width: 100vw;
+        }
+
+        /* Custom Luxury Cursor - REMOVED FOR PERFORMANCE */
+
+        /* Ultra Premium Animated Background */
+        .animated-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -5;
+            background: var(--gradient-main);
+            animation: backgroundShift 30s ease-in-out infinite;
+        }
+
+        .animated-bg::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(circle at 20% 20%, rgba(2, 187, 212, 0.2) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(255, 68, 204, 0.15) 0%, transparent 50%),
+                radial-gradient(circle at 40% 60%, rgba(255, 225, 77, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 60% 20%, rgba(138, 43, 226, 0.08) 0%, transparent 50%),
+                radial-gradient(circle at 30% 90%, rgba(255, 215, 0, 0.05) 0%, transparent 50%);
+            animation: backgroundMove 40s ease-in-out infinite;
+        }
+
+        @keyframes backgroundShift {
+            0%, 100% { filter: hue-rotate(0deg) brightness(1); }
+            33% { filter: hue-rotate(60deg) brightness(1.1); }
+            66% { filter: hue-rotate(-30deg) brightness(0.95); }
+        }
+
+        @keyframes backgroundMove {
+            0%, 100% { transform: translate(0, 0) rotate(0deg) scale(1); }
+            25% { transform: translate(-30px, -20px) rotate(2deg) scale(1.02); }
+            50% { transform: translate(20px, 30px) rotate(-2deg) scale(0.98); }
+            75% { transform: translate(-20px, 20px) rotate(1deg) scale(1.01); }
+        }
+
+        /* Luxury Geometric Patterns */
+        .geometric-patterns {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -4;
+            pointer-events: none;
+            opacity: 0.1;
+        }
+
+        .geometric-pattern {
+            position: absolute;
+            width: 100px;
+            height: 100px;
+            border: 1px solid var(--accent-blue);
+            transform-origin: center;
+            animation: geometricFloat 20s linear infinite;
+        }
+
+        .geometric-pattern:nth-child(1) {
+            top: 10%;
+            left: 10%;
+            animation-duration: 25s;
+            border-color: var(--accent-blue);
+        }
+
+        .geometric-pattern:nth-child(2) {
+            top: 20%;
+            right: 15%;
+            animation-duration: 30s;
+            border-color: var(--accent-yellow);
+            border-radius: 50%;
+        }
+
+        .geometric-pattern:nth-child(3) {
+            bottom: 20%;
+            left: 20%;
+            animation-duration: 35s;
+            border-color: var(--accent-pink);
+            transform: rotate(45deg);
+        }
+
+        @keyframes geometricFloat {
+            0% { transform: translateY(0) rotate(0deg); opacity: 0.1; }
+            50% { transform: translateY(-50px) rotate(180deg); opacity: 0.3; }
+            100% { transform: translateY(0) rotate(360deg); opacity: 0.1; }
+        }
+
+        /* Enhanced Floating Particles */
+        .particles {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -3;
+            pointer-events: none;
+        }
+
+        .particle {
+            position: absolute;
+            border-radius: 50%;
+            animation: ultraFloat 25s linear infinite;
+            filter: blur(0.5px);
+        }
+
+        .particle:nth-child(5n) {
+            width: 4px;
+            height: 4px;
+            background: radial-gradient(circle, var(--accent-blue) 0%, transparent 70%);
+            animation-duration: 30s;
+            box-shadow: 0 0 10px var(--accent-blue);
+        }
+
+        .particle:nth-child(5n+1) {
+            width: 3px;
+            height: 3px;
+            background: radial-gradient(circle, var(--accent-yellow) 0%, transparent 70%);
+            animation-duration: 35s;
+            box-shadow: 0 0 8px var(--accent-yellow);
+        }
+
+        .particle:nth-child(5n+2) {
+            width: 2.5px;
+            height: 2.5px;
+            background: radial-gradient(circle, var(--accent-pink) 0%, transparent 70%);
+            animation-duration: 28s;
+            box-shadow: 0 0 6px var(--accent-pink);
+        }
+
+        .particle:nth-child(5n+3) {
+            width: 2px;
+            height: 2px;
+            background: radial-gradient(circle, var(--accent-purple) 0%, transparent 70%);
+            animation-duration: 40s;
+            box-shadow: 0 0 5px var(--accent-purple);
+        }
+
+        .particle:nth-child(5n+4) {
+            width: 3.5px;
+            height: 3.5px;
+            background: radial-gradient(circle, var(--accent-gold) 0%, transparent 70%);
+            animation-duration: 32s;
+            box-shadow: 0 0 12px var(--accent-gold);
+        }
+
+        @keyframes ultraFloat {
+            0% {
+                transform: translateY(100vh) rotate(0deg) scale(0);
+                opacity: 0;
+            }
+            10% {
+                opacity: 1;
+                transform: translateY(90vh) rotate(36deg) scale(1);
+            }
+            90% {
+                opacity: 1;
+                transform: translateY(-10vh) rotate(324deg) scale(1);
+            }
+            100% {
+                transform: translateY(-100px) rotate(360deg) scale(0);
+                opacity: 0;
+            }
+        }
+
+        /* Mouse Trail Effect */
+        .mouse-trail {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 6px;
+            height: 6px;
+            background: radial-gradient(circle, var(--accent-blue) 0%, transparent 70%);
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 9998;
+            opacity: 0;
+            animation: trailFade 0.5s ease-out forwards;
+        }
+
+        @keyframes trailFade {
+            0% { opacity: 0.8; transform: scale(1); }
+            100% { opacity: 0; transform: scale(0.5); }
+        }
+
+        /* Enhanced Navigation */
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(10, 10, 51, 0.95);
+            backdrop-filter: blur(25px);
+            -webkit-backdrop-filter: blur(25px);
+            z-index: 1000;
+            padding: 1rem 0;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+        }
+
+        .navbar.scrolled {
+            background: rgba(10, 10, 51, 0.98);
+            box-shadow: 0 12px 48px rgba(0, 0, 0, 0.6);
+            transform: translateY(0);
+        }
+
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            font-size: 1.3rem;
+            font-weight: 800;
+            color: var(--text-light);
+            text-decoration: none;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            cursor: pointer;
+        }
+
+        .logo:hover {
+            transform: scale(1.05);
+            filter: drop-shadow(0 0 20px rgba(2, 187, 212, 0.5));
+        }
+
+        .logo img {
+            width: 45px;
+            height: auto;
+            filter: drop-shadow(0 0 15px rgba(2, 187, 212, 0.4));
+            transition: all 0.4s ease;
+        }
+
+        .logo:hover img {
+            filter: drop-shadow(0 0 25px rgba(255, 225, 77, 0.7));
+            transform: rotate(5deg);
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 2.5rem;
+        }
+
+        .nav-link {
+            color: var(--text-light);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            cursor: pointer;
+            position: relative;
+            padding: 0.5rem 0;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--luxury-gradient);
+            transition: width 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            animation: gradientSlide 3s ease-in-out infinite;
+        }
+
+        @keyframes gradientSlide {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+
+        .nav-link:hover {
+            color: var(--accent-blue);
+            transform: translateY(-2px);
+            text-shadow: 0 0 15px rgba(2, 187, 212, 0.6);
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        .contact-email {
+            color: var(--accent-blue);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 600;
+            padding: 0.5rem 1rem;
+            border-radius: 25px;
+            border: 1px solid var(--accent-blue);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            cursor: pointer;
+        }
+
+        .contact-email:hover {
+            background: var(--accent-blue);
+            color: var(--primary-bg);
+            transform: translateY(-2px);
+            box-shadow: 0 12px 35px rgba(2, 187, 212, 0.4);
+        }
+
+        /* Ultra Premium Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 8rem 2rem 6rem;
+            position: relative;
+            background: transparent;
+        }
+
+        .hero-content {
+            max-width: 1200px;
+            z-index: 1;
+        }
+
+        .hero-subtitle {
+            font-size: 1.1rem;
+            color: var(--accent-blue);
+            font-weight: 700;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            margin-bottom: 2rem;
+            opacity: 0;
+            animation: luxuryFadeInUp 1.2s cubic-bezier(0.4, 0, 0.2, 1) 0.2s forwards;
+            text-shadow: 0 0 20px rgba(2, 187, 212, 0.5);
+        }
+
+        .hero-title {
+            font-size: 5.5rem;
+            font-weight: 900;
+            margin-bottom: 2rem;
+            color: var(--text-light);
+            text-shadow: 0 0 40px rgba(255, 255, 255, 0.2);
+            opacity: 0;
+            animation: luxuryFadeInUp 1.2s cubic-bezier(0.4, 0, 0.2, 1) 0.4s forwards;
+            line-height: 1.1;
+            background: linear-gradient(45deg, #ffffff, #02bbd4, #ffffff);
+            background-size: 400% 400%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: luxuryTextShimmer 3s ease-in-out infinite, luxuryFadeInUp 1.2s cubic-bezier(0.4, 0, 0.2, 1) 0.4s forwards;
+        }
+
+        @keyframes luxuryTextShimmer {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+
+        .hero-description {
+            font-size: 1.4rem;
+            color: var(--text-gray);
+            margin-bottom: 4rem;
+            font-weight: 600;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            opacity: 0;
+            animation: luxuryFadeInUp 1.2s cubic-bezier(0.4, 0, 0.2, 1) 0.6s forwards;
+        }
+
+        .hero-cta {
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            opacity: 0;
+            animation: luxuryFadeInUp 1.2s cubic-bezier(0.4, 0, 0.2, 1) 0.8s forwards;
+            margin-bottom: 6rem;
+        }
+
+        .cta-button {
+            padding: 1rem 2.5rem;
+            font-size: 1.1rem;
+            font-weight: 700;
+            border: none;
+            border-radius: 50px;
+            text-decoration: none;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: left 0.5s;
+        }
+
+        .cta-button:hover::before {
+            left: 100%;
+        }
+
+        .cta-primary {
+            background: var(--gradient-blue);
+            color: var(--primary-bg);
+            box-shadow: 0 8px 32px rgba(2, 187, 212, 0.3);
+        }
+
+        .cta-secondary {
+            background: transparent;
+            color: var(--text-light);
+            border: 2px solid var(--accent-blue);
+            box-shadow: 0 8px 32px rgba(2, 187, 212, 0.2);
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+        }
+
+        .cta-primary:hover {
+            box-shadow: 0 20px 60px rgba(2, 187, 212, 0.5);
+        }
+
+        .cta-secondary:hover {
+            background: var(--accent-blue);
+            color: var(--primary-bg);
+        }
+
+        /* Ultra Premium Service Preview Boxes */
+        .service-preview {
+            opacity: 0;
+            animation: luxuryFadeInUp 1.2s cubic-bezier(0.4, 0, 0.2, 1) 1s forwards;
+        }
+
+        .services-wrapper {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+            justify-content: center;
+            align-items: stretch;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .service-preview-card {
+            flex: 1 1 320px;
+            max-width: 380px;
+            padding: 2.5rem;
+            border-radius: 30px;
+            background: rgba(255, 255, 255, 0.02);
+            backdrop-filter: blur(25px);
+            -webkit-backdrop-filter: blur(25px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            color: white;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+            cursor: pointer;
+        }
+
+        .service-preview-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, transparent 100%);
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+
+        .service-preview-card:hover::before {
+            opacity: 1;
+        }
+
+        .ai-preview-card {
+            box-shadow: 0 0 40px rgba(2, 187, 212, 0.3);
+        }
+
+        .ai-preview-card:hover {
+            transform: translateY(-15px) rotate(-2deg) scale(1.03);
+            box-shadow: 0 0 60px rgba(2, 187, 212, 0.5), 0 30px 80px rgba(2, 187, 212, 0.3);
+            border-color: var(--accent-blue);
+        }
+
+        .reactivation-preview-card {
+            box-shadow: 0 0 40px rgba(255, 225, 77, 0.3);
+        }
+
+        .reactivation-preview-card:hover {
+            transform: translateY(-15px) rotate(2deg) scale(1.03);
+            box-shadow: 0 0 60px rgba(255, 225, 77, 0.5), 0 30px 80px rgba(255, 225, 77, 0.3);
+            border-color: var(--accent-yellow);
+        }
+
+        .consulting-preview-card {
+            box-shadow: 0 0 40px rgba(138, 43, 226, 0.3);
+        }
+
+        .consulting-preview-card:hover {
+            transform: translateY(-15px) rotate(-1deg) scale(1.03);
+            box-shadow: 0 0 60px rgba(138, 43, 226, 0.5), 0 30px 80px rgba(138, 43, 226, 0.3);
+            border-color: var(--accent-purple);
+        }
+
+        .service-preview-icon {
+            width: 50px;
+            margin-bottom: 1.5rem;
+            margin-left: auto;
+            margin-right: auto;
+            display: block;
+            filter: drop-shadow(0 0 20px rgba(255, 255, 255, 0.3));
+            transition: all 0.4s ease;
+        }
+
+        .consulting-preview-card .service-preview-icon {
+            filter: brightness(0) saturate(100%) invert(56%) sepia(93%) saturate(6341%) hue-rotate(295deg) brightness(101%) contrast(101%);
+        }
+
+        .ai-preview-card:hover .service-preview-icon {
+            filter: drop-shadow(0 0 25px var(--accent-blue));
+            transform: scale(1.1) rotate(5deg);
+        }
+
+        .reactivation-preview-card:hover .service-preview-icon {
+            filter: drop-shadow(0 0 25px var(--accent-yellow));
+            transform: scale(1.1) rotate(-5deg);
+        }
+
+        .consulting-preview-card:hover .service-preview-icon {
+            filter: drop-shadow(0 0 25px var(--accent-purple));
+            transform: scale(1.1) rotate(3deg);
+        }
+
+        .service-preview-title {
+            font-size: 1.5rem;
+            font-weight: 800;
+            margin-bottom: 0.8rem;
+            transition: all 0.4s ease;
+        }
+
+        .service-preview-subtitle {
+            font-size: 1rem;
+            line-height: 1.7;
+            color: var(--text-gray);
+            margin-bottom: 1.5rem;
+            font-weight: 500;
+        }
+
+        .service-preview-description {
+            margin: 0 auto 1.5rem auto;
+            font-size: 0.95rem;
+            line-height: 1.7;
+            color: var(--text-gray);
+            font-weight: 400;
+        }
+
+        .service-preview-features {
+            list-style: none;
+            padding: 0;
+            text-align: left;
+            font-size: 0.9rem;
+            line-height: 1.8;
+            color: var(--text-gray);
+            margin-bottom: 2rem;
+        }
+
+        .service-preview-features li {
+            margin-bottom: 0.8rem;
+            padding-left: 1rem;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+
+        .service-preview-features li:hover {
+            color: var(--text-light);
+            transform: translateX(5px);
+        }
+
+        .service-preview-cta {
+            display: inline-block;
+            padding: 0.9rem 1.8rem;
+            font-weight: 700;
+            font-size: 1rem;
+            border-radius: 50px;
+            text-decoration: none;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+            cursor: pointer;
+        }
+
+        .ai-preview-cta {
+            background: var(--gradient-blue);
+            color: var(--primary-bg);
+            box-shadow: 0 8px 32px rgba(2, 187, 212, 0.4);
+        }
+
+        .reactivation-preview-cta {
+            background: var(--gradient-yellow);
+            color: var(--primary-bg);
+            box-shadow: 0 8px 32px rgba(255, 225, 77, 0.4);
+        }
+
+        .consulting-preview-cta {
+            background: linear-gradient(135deg, #8a2be2, #ff44cc);
+            color: var(--text-light);
+            box-shadow: 0 8px 32px rgba(138, 43, 226, 0.4);
+        }
+
+        .service-preview-cta:hover {
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
+        }
+
+        /* AI Consulting & Strategy Section */
+        .consulting {
+            padding: 8rem 2rem;
+            background: transparent;
+            position: relative;
+        }
+
+        .consulting-hero {
+            text-align: center;
+            max-width: 900px;
+            margin: 0 auto 6rem auto;
+        }
+
+        .consulting-logo {
+            width: 80px;
+            margin-bottom: 2rem;
+            margin-left: auto;
+            margin-right: auto;
+            display: block;
+            filter: drop-shadow(0 0 30px rgba(138, 43, 226, 0.6));
+        }
+
+        .consulting-title {
+            font-size: 3.5rem;
+            font-weight: 900;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(135deg, var(--accent-purple), var(--accent-pink));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .consulting-subtitle {
+            font-size: 1.8rem;
+            font-weight: 600;
+            margin-bottom: 2rem;
+            color: var(--text-gray);
+        }
+
+        .consulting-subtitle span {
+            background: linear-gradient(135deg, var(--accent-purple), var(--accent-pink));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-weight: 800;
+        }
+
+        .consulting-description {
+            font-size: 1.2rem;
+            line-height: 1.9;
+            color: var(--text-gray);
+            margin-bottom: 3rem;
+        }
+
+        .consulting-cta-btn {
+            display: inline-block;
+            padding: 1.2rem 3rem;
+            font-weight: 700;
+            font-size: 1.2rem;
+            border-radius: 50px;
+            background: linear-gradient(135deg, #8a2be2, #ff44cc);
+            color: var(--text-light);
+            text-decoration: none;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 10px 40px rgba(138, 43, 226, 0.4);
+        }
+
+        .consulting-cta-btn:hover {
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 0 20px 60px rgba(138, 43, 226, 0.6);
+        }
+
+        /* Journey Section */
+        .journey-section {
+            margin-bottom: 6rem;
+        }
+
+        .journey-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 3rem;
+            max-width: 1400px;
+            margin: 4rem auto 0;
+            padding: 0 2rem;
+        }
+
+        .journey-card {
+            background: rgba(255, 255, 255, 0.02);
+            backdrop-filter: blur(25px);
+            -webkit-backdrop-filter: blur(25px);
+            border: 1px solid rgba(138, 43, 226, 0.3);
+            border-radius: 30px;
+            padding: 3rem 2rem;
+            text-align: center;
+            transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .journey-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--accent-purple);
+            box-shadow: 0 20px 60px rgba(138, 43, 226, 0.4);
+        }
+
+        .journey-number {
+            position: absolute;
+            top: 1rem;
+            right: 1.5rem;
+            font-size: 4rem;
+            font-weight: 900;
+            background: linear-gradient(135deg, var(--accent-purple), var(--accent-pink));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            opacity: 0.2;
+        }
+
+        .journey-icon {
+            width: 70px;
+            height: auto;
+            margin-bottom: 2rem;
+            margin-left: auto;
+            margin-right: auto;
+            display: block;
+            filter: drop-shadow(0 0 20px rgba(138, 43, 226, 0.5));
+            transition: all 0.4s ease;
+        }
+
+        .journey-card:hover .journey-icon {
+            filter: drop-shadow(0 0 30px var(--accent-pink));
+            transform: scale(1.1) rotate(5deg);
+        }
+
+        .journey-card h4 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: var(--text-light);
+        }
+
+        .journey-card p {
+            font-size: 1rem;
+            line-height: 1.7;
+            color: var(--text-gray);
+        }
+
+        /* Benefits Section */
+        .benefits-section {
+            margin-bottom: 6rem;
+        }
+
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 3rem;
+            max-width: 1400px;
+            margin: 4rem auto 0;
+            padding: 0 2rem;
+        }
+
+        .benefit-card {
+            background: rgba(255, 255, 255, 0.02);
+            backdrop-filter: blur(25px);
+            -webkit-backdrop-filter: blur(25px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 25px;
+            padding: 2.5rem 2rem;
+            text-align: center;
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .benefit-card:hover {
+            transform: translateY(-8px);
+            border-color: var(--accent-purple);
+            box-shadow: 0 15px 50px rgba(138, 43, 226, 0.3);
+        }
+
+        .benefit-card img {
+            width: 60px;
+            height: auto;
+            margin-bottom: 1.5rem;
+            margin-left: auto;
+            margin-right: auto;
+            display: block;
+            filter: drop-shadow(0 0 15px rgba(138, 43, 226, 0.4));
+            transition: all 0.4s ease;
+        }
+
+        .benefit-card:hover img {
+            filter: drop-shadow(0 0 25px var(--accent-pink));
+            transform: scale(1.1);
+        }
+
+        .benefit-card h4 {
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: var(--text-light);
+        }
+
+        .benefit-card p {
+            font-size: 1rem;
+            line-height: 1.7;
+            color: var(--text-gray);
+        }
+
+        /* Consulting Final CTA */
+        .consulting-final-cta {
+            text-align: center;
+            max-width: 800px;
+            margin: 6rem auto;
+            padding: 4rem 3rem;
+            background: rgba(138, 43, 226, 0.1);
+            backdrop-filter: blur(25px);
+            -webkit-backdrop-filter: blur(25px);
+            border: 2px solid rgba(138, 43, 226, 0.3);
+            border-radius: 40px;
+        }
+
+        .consulting-final-cta h2 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(135deg, var(--accent-purple), var(--accent-pink));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .consulting-final-cta p {
+            font-size: 1.2rem;
+            line-height: 1.8;
+            color: var(--text-gray);
+            margin-bottom: 2.5rem;
+        }
+
+        .consulting-cta-button {
+            display: inline-block;
+            padding: 1.2rem 3rem;
+            font-weight: 700;
+            font-size: 1.2rem;
+            border-radius: 50px;
+            background: linear-gradient(135deg, #8a2be2, #ff44cc);
+            color: var(--text-light);
+            text-decoration: none;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 10px 40px rgba(138, 43, 226, 0.5);
+        }
+
+        .consulting-cta-button:hover {
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 0 20px 60px rgba(255, 68, 204, 0.6);
+        }
+
+        /* AI Agents Section */
+        .ai-agents {
+            padding: 8rem 2rem;
+            background: transparent;
+            position: relative;
+        }
+
+        .ai-hero {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: center;
+            max-width: 1400px;
+            margin: 0 auto 8rem;
+            gap: 4rem;
+        }
+
+        .ai-hero-content {
+            flex: 1 1 500px;
+            text-align: center;
+        }
+
+        .ai-hero-image {
+            flex: 1 1 400px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .sophie-img {
+            max-width: 400px;
+            width: 100%;
+            filter: drop-shadow(0 0 30px var(--accent-blue)) drop-shadow(0 0 60px var(--accent-blue));
+            transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+            border-radius: 20px;
+        }
+
+        .sophie-img:hover {
+            filter: drop-shadow(0 0 40px var(--accent-yellow)) drop-shadow(0 0 80px var(--accent-yellow));
+            transform: scale(1.05) rotateY(10deg) rotateX(5deg);
+        }
+
+        .ai-hero-logo {
+            max-width: 160px;
+            margin-bottom: 1.5rem;
+            margin-left: auto;
+            margin-right: auto;
+            display: block;
+            filter: drop-shadow(0 0 20px rgba(2, 187, 212, 0.4));
+        }
+
+        .ai-hero-title {
+            font-size: 3rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            color: var(--text-light);
+        }
+
+        .ai-hero-subtitle {
+            font-size: 2rem;
+            color: var(--accent-blue);
+            font-weight: 700;
+            margin-bottom: 2rem;
+        }
+
+        .ai-hero-description {
+            font-size: 1.1rem;
+            color: var(--text-gray);
+            line-height: 1.8;
+            margin-bottom: 2.5rem;
+            font-weight: 500;
+        }
+
+        .sophie-cta {
+            display: inline-block;
+            background: var(--accent-blue);
+            color: var(--primary-bg);
+            padding: 1rem 2.5rem;
+            border-radius: 50px;
+            font-weight: 700;
+            text-decoration: none;
+            box-shadow: 0 0 30px var(--accent-blue);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            cursor: pointer;
+        }
+
+        .sophie-cta:hover {
+            background: var(--accent-yellow);
+            box-shadow: 0 0 50px var(--accent-yellow), 0 0 100px var(--accent-yellow);
+            transform: translateY(-3px) scale(1.05);
+        }
+
+        /* Capabilities Grid */
+        .capabilities-section {
+            margin-bottom: 8rem;
+        }
+
+        .section-divider {
+            width: 120px;
+            height: 4px;
+            background: var(--luxury-gradient);
+            margin: 0 auto 4rem;
+            border-radius: 2px;
+            animation: gradientSlide 3s ease-in-out infinite;
+        }
+
+        .section-title {
+            font-size: 3.5rem;
+            font-weight: 800;
+            text-align: center;
+            margin-bottom: 2rem;
+            color: var(--text-light);
+            text-shadow: 0 0 30px rgba(255, 255, 255, 0.2);
+        }
+
+        .section-subtitle {
+            font-size: 1.2rem;
+            text-align: center;
+            color: var(--text-gray);
+            margin-bottom: 5rem;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+            font-weight: 500;
+        }
+
+        .capabilities-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 3rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .capability-card {
+            padding: 3rem;
+            border-radius: 25px;
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(25px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            text-align: center;
+            transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 0 30px rgba(2, 187, 212, 0.2);
+            cursor: pointer;
+        }
+
+        .capability-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(2, 187, 212, 0.1) 0%, transparent 100%);
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+
+        .capability-card:hover::before {
+            opacity: 1;
+        }
+
+        .capability-card:hover {
+            transform: translateY(-15px) rotate(3deg) scale(1.02);
+            box-shadow: 0 30px 80px rgba(255, 225, 77, 0.4);
+            border-color: var(--accent-yellow);
+        }
+
+        .capability-icon {
+            width: 60px;
+            margin-bottom: 2rem;
+            margin-left: auto;
+            margin-right: auto;
+            display: block;
+            filter: drop-shadow(0 0 15px var(--accent-blue));
+            transition: all 0.4s ease;
+        }
+
+        .capability-card:hover .capability-icon {
+            filter: drop-shadow(0 0 20px var(--accent-yellow));
+            transform: scale(1.2) rotate(10deg);
+        }
+
+        .capability-card h4 {
+            font-size: 1.3rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            color: var(--text-light);
+        }
+
+        .capability-card p {
+            font-size: 1rem;
+            color: var(--text-gray);
+            line-height: 1.7;
+            font-weight: 400;
+        }
+
+        /* Team Integration Section */
+        .team-integration {
+            padding: 8rem 2rem;
+            background: transparent;
+        }
+
+        .team-integration-inner {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 4rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .team-image {
+            flex: 1 1 500px;
+            max-width: 600px;
+        }
+
+        .team-image img {
+            width: 100%;
+            border-radius: 25px;
+            box-shadow: 0 0 40px var(--accent-blue);
+            transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .team-image img:hover {
+            transform: scale(1.03) rotateY(-10deg);
+            box-shadow: 0 0 60px var(--accent-yellow);
+        }
+
+        .team-content {
+            flex: 1 1 500px;
+        }
+
+        .team-content h2 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 2rem;
+            color: var(--text-light);
+        }
+
+        .team-content p {
+            font-size: 1.1rem;
+            color: var(--text-gray);
+            line-height: 1.8;
+            margin-bottom: 2rem;
+            font-weight: 500;
+        }
+
+        .team-features {
+            list-style: none;
+            margin-bottom: 3rem;
+        }
+
+        .team-features li {
+            font-size: 1rem;
+            margin-bottom: 1rem;
+            padding-left: 2rem;
+            position: relative;
+            color: var(--text-gray);
+        }
+
+        .team-features li::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0.6rem;
+            width: 12px;
+            height: 12px;
+            background: var(--accent-blue);
+            border-radius: 50%;
+            box-shadow: 0 0 15px var(--accent-blue);
+        }
+
+        .team-buttons {
+            display: flex;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .team-btn {
+            display: inline-block;
+            background: var(--accent-blue);
+            color: var(--primary-bg);
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            font-weight: 700;
+            text-decoration: none;
+            box-shadow: 0 0 30px var(--accent-blue);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            cursor: pointer;
+        }
+
+        .team-btn:hover {
+            background: var(--accent-yellow);
+            box-shadow: 0 0 50px var(--accent-yellow);
+            transform: translateY(-3px) scale(1.05);
+        }
+
+        /* Database Reactivation Section */
+        .reactivation {
+            padding: 8rem 2rem;
+            background: transparent;
+            position: relative;
+        }
+
+        .reactivation-hero {
+            text-align: center;
+            max-width: 1000px;
+            margin: 0 auto 8rem;
+        }
+
+        .reactivation-logo {
+            max-width: 140px;
+            margin-bottom: 2rem;
+            margin-left: auto;
+            margin-right: auto;
+            display: block;
+            filter: drop-shadow(0 0 25px rgba(255, 225, 77, 0.8)) drop-shadow(0 0 15px rgba(255, 225, 77, 0.6));
+        }
+
+        .reactivation-title {
+            font-size: 3.5rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            color: var(--text-light);
+        }
+
+        .reactivation-subtitle {
+            font-size: 2.5rem;
+            color: var(--accent-yellow);
+            font-weight: 700;
+            margin-bottom: 2rem;
+        }
+
+        .reactivation-description {
+            font-size: 1.2rem;
+            color: var(--text-gray);
+            line-height: 1.8;
+            margin-bottom: 3rem;
+            font-weight: 500;
+        }
+
+        .reactivation-cta {
+            display: inline-block;
+            background: var(--accent-yellow);
+            color: var(--primary-bg);
+            padding: 1rem 2.5rem;
+            border-radius: 50px;
+            font-weight: 700;
+            text-decoration: none;
+            box-shadow: 0 0 30px var(--accent-yellow);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            margin-bottom: 3rem;
+            cursor: pointer;
+        }
+
+        .reactivation-cta:hover {
+            background: var(--accent-blue);
+            box-shadow: 0 0 50px var(--accent-blue);
+            transform: translateY(-3px) scale(1.05);
+        }
+
+        .reactivation-image {
+            width: 100%;
+            max-width: 800px;
+            border-radius: 20px;
+            box-shadow: 0 0 40px var(--accent-yellow);
+            transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .reactivation-image:hover {
+            transform: scale(1.03);
+            box-shadow: 0 0 80px var(--accent-blue);
+        }
+
+        /* Solutions Grid */
+        .solutions-section {
+            margin-top: 8rem;
+        }
+
+        .solutions-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 3rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .solution-card {
+            padding: 3rem;
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 25px;
+            backdrop-filter: blur(25px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            text-align: left;
+            transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 0 30px rgba(255, 225, 77, 0.2);
+            cursor: pointer;
+        }
+
+        .solution-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(255, 225, 77, 0.1) 0%, transparent 100%);
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+
+        .solution-card:hover::before {
+            opacity: 1;
+        }
+
+        .solution-card:hover {
+            transform: translateY(-15px) rotate(-2deg) scale(1.02);
+            box-shadow: 0 30px 80px rgba(2, 187, 212, 0.4);
+            border-color: var(--accent-blue);
+        }
+
+        .solution-card img {
+            width: 50px;
+            margin-bottom: 1.5rem;
+            margin-left: auto;
+            margin-right: auto;
+            display: block;
+            filter: drop-shadow(0 0 15px var(--accent-yellow));
+            transition: all 0.4s ease;
+        }
+
+        .solution-card:hover img {
+            filter: drop-shadow(0 0 20px var(--accent-blue));
+            transform: scale(1.2) rotate(-10deg);
+        }
+
+        .solution-card h4 {
+            font-size: 1.2rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            color: var(--text-light);
+        }
+
+        .solution-card p {
+            font-size: 1rem;
+            color: var(--text-gray);
+            line-height: 1.7;
+            font-weight: 400;
+        }
+
+        .solutions-cta {
+            text-align: center;
+            margin-top: 4rem;
+        }
+
+        .solutions-cta a {
+            display: inline-block;
+            background: var(--accent-yellow);
+            color: var(--primary-bg);
+            padding: 1rem 2.5rem;
+            border-radius: 50px;
+            font-weight: 700;
+            text-decoration: none;
+            box-shadow: 0 0 30px var(--accent-yellow);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            cursor: pointer;
+        }
+
+        .solutions-cta a:hover {
+            background: var(--accent-blue);
+            box-shadow: 0 0 50px var(--accent-blue);
+            transform: translateY(-3px) scale(1.05);
+        }
+
+        /* About Section */
+        .about {
+            padding: 8rem 2rem;
+            background: transparent;
+            text-align: center;
+            position: relative;
+        }
+
+        .about-container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .about-intro {
+            max-width: 900px;
+            margin: 0 auto 5rem auto;
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: var(--text-gray);
+            font-weight: 500;
+        }
+
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 3rem;
+            margin-bottom: 6rem;
+        }
+
+        .team-card {
+            padding: 3rem;
+            background: rgba(255,255,255,0.03);
+            border-radius: 25px;
+            backdrop-filter: blur(25px);
+            transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            position: relative;
+            overflow: hidden;
+            cursor: pointer;
+        }
+
+        .team-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.05) 0%, transparent 100%);
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+
+        .team-card:hover::before {
+            opacity: 1;
+        }
+
+        .jacob-card:hover {
+            transform: translateY(-12px) rotate(-1deg);
+            box-shadow: 0 25px 80px rgba(2, 187, 212, 0.2);
+            border-color: var(--accent-blue);
+        }
+
+        .oliver-card:hover {
+            transform: translateY(-12px) rotate(1deg);
+            box-shadow: 0 25px 80px rgba(255, 225, 77, 0.2);
+            border-color: var(--accent-yellow);
+        }
+
+        .team-card h3 {
+            font-size: 1.5rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            color: var(--text-light);
+        }
+
+        .team-card p {
+            font-size: 1rem;
+            color: var(--text-gray);
+            line-height: 1.8;
+            font-weight: 400;
+        }
+
+        .strategy-card {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 4rem;
+            background: rgba(255,255,255,0.05);
+            border-radius: 30px;
+            backdrop-filter: blur(25px);
+            transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            position: relative;
+            overflow: hidden;
+            cursor: pointer;
+        }
+
+        .strategy-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--gradient-pink);
+            opacity: 0.05;
+            transition: opacity 0.4s ease;
+        }
+
+        .strategy-card:hover::before {
+            opacity: 0.1;
+        }
+
+        .strategy-card:hover {
+            transform: translateY(-15px);
+            box-shadow: 0 30px 100px rgba(255, 68, 204, 0.2);
+            border-color: var(--accent-pink);
+        }
+
+        .strategy-card h2 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 2rem;
+            color: var(--text-light);
+        }
+
+        .strategy-card p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: var(--text-gray);
+            margin-bottom: 2rem;
+            font-weight: 500;
+        }
+
+        .strategy-card p:last-child {
+            margin-bottom: 0;
+        }
+
+        /* Footer */
+        .footer {
+            background: rgba(10, 10, 51, 0.95);
+            backdrop-filter: blur(25px);
+            color: white;
+            padding: 4rem 2rem 2rem;
+            text-align: center;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            margin-top: 4rem;
+        }
+
+        .footer-logo {
+            margin-bottom: 2rem;
+        }
+
+        .footer-logo img {
+            width: 90px;
+            margin-bottom: 1rem;
+            margin-left: auto;
+            margin-right: auto;
+            display: block;
+            filter: drop-shadow(0 0 20px rgba(2, 187, 212, 0.4));
+        }
+
+        .footer-tagline {
+            color: var(--text-light);
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+            font-weight: 600;
+        }
+
+        .footer-links {
+            margin-bottom: 3rem;
+            font-size: 1rem;
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .footer-links a {
+            text-decoration: none;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            font-weight: 600;
+            padding: 0.5rem 1rem;
+            border-radius: 25px;
+            cursor: pointer;
+        }
+
+        .footer-links a:hover {
+            transform: translateY(-2px);
+        }
+
+        .footer-nav-link {
+            color: var(--accent-yellow);
+            border: 1px solid var(--accent-yellow);
+        }
+
+        .footer-nav-link:hover {
+            background: var(--accent-yellow);
+            color: var(--primary-bg);
+        }
+
+        .footer-contact {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            margin-bottom: 2rem;
+        }
+
+        .footer-contact a {
+            color: var(--accent-yellow);
+            text-decoration: none;
+        }
+
+        .footer-contact a:hover {
+            color: var(--accent-blue);
+        }
+
+        .footer-cta {
+            margin-bottom: 3rem;
+        }
+
+        .footer-cta a {
+            display: inline-block;
+            padding: 1rem 2.5rem;
+            background: var(--gradient-blue);
+            color: var(--primary-bg);
+            font-weight: 700;
+            font-size: 1.1rem;
+            border-radius: 50px;
+            text-decoration: none;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            cursor: pointer;
+        }
+
+        .footer-cta a:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 20px 50px rgba(2, 187, 212, 0.5);
+        }
+
+        .footer-legal {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .footer-legal p {
+            margin-top: 0.5rem;
+            font-weight: 500;
+        }
+
+        /* Scroll Progress Bar */
+        .scroll-progress {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 0%;
+            height: 4px;
+            background: var(--luxury-gradient);
+            z-index: 1001;
+            transition: width 0.1s ease;
+            animation: gradientSlide 3s ease-in-out infinite;
+        }
+
+        /* Luxury Animations */
+        @keyframes luxuryFadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .fade-in {
+            opacity: 0;
+            transform: translateY(60px);
+            transition: all 1s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* ULTRA MOBILE OPTIMIZATION WITH FLUID SCALING */
+        @media (max-width: 768px) {
+            /* Disable expensive effects on mobile */
+            body {
+                cursor: auto;
+                background: linear-gradient(180deg, rgba(10, 10, 51, 1) 0%, rgba(26, 26, 74, 1) 100%);
+                -webkit-text-size-adjust: 100%;
+                text-size-adjust: 100%;
+            }
+
+            /* PROPER MOBILE CONTAINER FIXES */
+            * {
+                box-sizing: border-box;
+            }
+
+            body {
+                width: 100vw;
+                max-width: 100vw;
+                overflow-x: hidden;
+            }
+
+            .hero-content {
+                width: 100%;
+                max-width: 100vw;
+                padding: 0 1rem;
+                text-align: center;
+            }
+
+            /* FLUID TYPOGRAPHY - SCALES WITH SCREEN SIZE */
+            .hero-title {
+                font-size: clamp(1.6rem, 6vw, 2.8rem);
+            }
+
+            .hero-subtitle {
+                font-size: clamp(0.65rem, 2.5vw, 0.9rem);
+            }
+
+            .hero-description {
+                font-size: clamp(0.85rem, 3vw, 1.1rem);
+            }
+
+            .service-preview-title {
+                font-size: clamp(1.3rem, 4vw, 1.8rem);
+            }
+
+            .service-preview-subtitle,
+            .service-preview-description {
+                font-size: clamp(0.8rem, 2.5vw, 1rem);
+            }
+
+            /* PERFORMANCE OPTIMIZATIONS */
+            .service-preview-card {
+                will-change: auto;
+                contain: layout style paint;
+            }
+
+            /* Reduce motion for better performance */
+            @media (prefers-reduced-motion: reduce) {
+                *,
+                *::before,
+                *::after {
+                    animation-duration: 0.01ms !important;
+                    animation-iteration-count: 1 !important;
+                    transition-duration: 0.01ms !important;
+                }
+            }
+            
+            /* Remove all performance-heavy elements */
+            .particles,
+            .geometric-patterns,
+            .animated-bg,
+            .mouse-trail {
+                display: none !important;
+            }
+
+            /* Disable animations that cause lag */
+            .fade-in {
+                animation: none !important;
+                opacity: 1 !important;
+                transform: none !important;
+            }
+
+            /* Optimize navigation */
+            .navbar {
+                padding: 0.8rem 0;
+                backdrop-filter: blur(10px);
+                position: fixed;
+                top: 0;
+                z-index: 1000;
+            }
+
+            .nav-container {
+                padding: 0 1rem;
+            }
+
+            .nav-menu {
+                display: none;
+            }
+
+            .logo {
+                font-size: 1.1rem;
+            }
+
+            .logo img {
+                width: 35px;
+            }
+
+            .contact-email {
+                font-size: 0.8rem;
+                padding: 0.4rem 0.8rem;
+            }
+
+            /* MOBILE HERO SECTION - PROPERLY CONTAINED */
+            .hero {
+                padding: 6.5rem 0 2rem;
+                min-height: 100vh;
+                min-height: 100dvh; /* Dynamic viewport height for mobile browsers */
+                width: 100%;
+                max-width: 100vw;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                overflow-x: hidden;
+                box-sizing: border-box;
+            }
+
+            .hero-content {
+                width: 100%;
+                max-width: 100%;
+                padding: 0 1rem;
+                text-align: center;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                box-sizing: border-box;
+            }
+
+            .hero-subtitle {
+                font-size: 0.8rem;
+                font-weight: 700;
+                letter-spacing: 2px;
+                margin-bottom: 1rem;
+                color: var(--accent-blue);
+                text-transform: uppercase;
+                width: 100%;
+                max-width: 100%;
+                word-wrap: break-word;
+                overflow-wrap: break-word;
+            }
+
+            .hero-title {
+                font-size: 2.2rem;
+                font-weight: 900;
+                line-height: 1.1;
+                margin-top: 1.5rem;
+                margin-bottom: 1rem;
+                color: var(--text-light);
+                text-align: center;
+                width: 100%;
+                max-width: 100%;
+                word-wrap: break-word;
+                overflow-wrap: break-word;
+            }
+
+            .hero-description {
+                font-size: 1rem;
+                font-weight: 600;
+                letter-spacing: 1px;
+                margin-bottom: 2rem;
+                color: var(--text-gray);
+                text-transform: uppercase;
+                width: 100%;
+                max-width: 100%;
+                word-wrap: break-word;
+                overflow-wrap: break-word;
+            }
+
+            .hero-cta {
+                width: 100%;
+                max-width: 100%;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                gap: 1rem;
+                margin-bottom: 2rem;
+                padding: 0 1rem;
+            }
+
+            .cta-button {
+                width: calc(100% - 2rem);
+                max-width: 300px;
+                padding: 1rem 1.5rem;
+                font-size: 1rem;
+                font-weight: 700;
+                text-align: center;
+                border-radius: 50px;
+                display: block;
+                box-sizing: border-box;
+            }
+
+            .cta-primary,
+            .cta-secondary {
+                width: calc(100% - 2rem);
+                max-width: 300px;
+                padding: 1rem 1.5rem;
+            }
+
+            /* MOBILE SERVICE PREVIEW CARDS - PROPERLY CONTAINED */
+            .service-preview {
+                width: 100%;
+                max-width: 100vw;
+                padding: 2rem 0;
+                margin-top: 2rem;
+                overflow-x: hidden;
+                box-sizing: border-box;
+            }
+
+            .services-wrapper {
+                width: 100%;
+                max-width: 100%;
+                display: flex;
+                flex-direction: column;
+                gap: 1.5rem;
+                align-items: center;
+                padding: 0 1rem;
+                margin: 0;
+                box-sizing: border-box;
+            }
+
+            .service-preview-card {
+                width: 100%;
+                max-width: 100%;
+                padding: 1.5rem 1rem;
+                margin: 0;
+                border-radius: 20px;
+                background: rgba(255, 255, 255, 0.03);
+                backdrop-filter: blur(15px);
+                -webkit-backdrop-filter: blur(15px); /* Safari support */
+                border: 1px solid rgba(255, 255, 255, 0.1);
+                color: white;
+                text-align: center;
+                box-sizing: border-box;
+                overflow: visible;
+                display: flex;
+                flex-direction: column;
+                min-height: auto;
+                height: auto;
+            }
+
+            .service-preview-card:hover {
+                box-shadow: 0 0 20px rgba(2, 187, 212, 0.3);
+            }
+
+            .service-preview-title {
+                font-size: 1.3rem;
+                margin-bottom: 0.8rem;
+                width: 100%;
+                word-wrap: break-word;
+                overflow-wrap: break-word;
+                hyphens: auto;
+                line-height: 1.3;
+            }
+
+            .service-preview-subtitle,
+            .service-preview-description {
+                font-size: 0.9rem;
+                line-height: 1.6;
+                margin-bottom: 1.5rem;
+                width: 100%;
+                word-wrap: break-word;
+                overflow-wrap: break-word;
+            }
+
+            .service-preview-features {
+                display: none; /* Hide bullet points on mobile */
+            }
+
+            .service-preview-cta {
+                width: 100%;
+                max-width: 100%;
+                padding: 0.9rem 1rem;
+                font-size: 0.95rem;
+                margin-top: 0;
+                box-sizing: border-box;
+                display: block;
+                text-align: center;
+                transform: none !important;
+            }
+
+            .service-preview-cta:hover {
+                transform: translateY(-2px) !important;
+            }
+
+            .service-preview-icon {
+                width: 40px;
+                height: auto;
+                margin-bottom: 1rem;
+            }
+
+            /* Section optimizations */
+            .section-title {
+                font-size: 1.8rem;
+                margin-bottom: 1rem;
+                line-height: 1.2;
+            }
+
+            .section-subtitle {
+                font-size: 0.9rem;
+                margin-bottom: 2rem;
+                line-height: 1.5;
+            }
+
+            .ai-agents,
+            .team-integration,
+            .reactivation,
+            .consulting,
+            .about {
+                padding: 2rem 1rem;
+                width: 100%;
+                max-width: 100vw;
+                overflow-x: hidden;
+                box-sizing: border-box;
+            }
+
+            .ai-hero,
+            .consulting-hero,
+            .team-integration-inner {
+                flex-direction: column;
+                text-align: center;
+                gap: 1.5rem;
+                padding: 1.5rem 1rem;
+            }
+
+            .ai-hero-title,
+            .consulting-title {
+                font-size: 1.8rem;
+                line-height: 1.2;
+                word-wrap: break-word;
+            }
+
+            .ai-hero-subtitle,
+            .consulting-subtitle {
+                font-size: 1.3rem;
+                line-height: 1.3;
+                word-wrap: break-word;
+            }
+
+            .ai-hero-description,
+            .consulting-description {
+                font-size: 0.95rem;
+                line-height: 1.6;
+                word-wrap: break-word;
+                padding: 0 0.5rem;
+            }
+
+            .reactivation-title {
+                font-size: 2.2rem;
+            }
+
+            .reactivation-subtitle {
+                font-size: 1.8rem;
+            }
+
+            /* Grid optimizations - Make capabilities 2 columns, keep team-grid single */
+            .capabilities-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 1rem;
+                width: 100%;
+                padding: 0 1rem;
+            }
+
+            .team-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+                width: 100%;
+                padding: 0;
+            }
+
+            .capability-card {
+                padding: 1.5rem 1rem;
+                transform: none !important;
+                transition: none !important;
+                width: 100%;
+                max-width: 100%;
+                box-sizing: border-box;
+                text-align: center;
+            }
+
+            .capability-card h4 {
+                font-size: 1rem;
+                margin-bottom: 0.5rem;
+                text-align: center;
+            }
+
+            .capability-card p {
+                font-size: 0.8rem;
+                line-height: 1.5;
+                text-align: center;
+            }
+
+            .capability-icon {
+                width: 45px !important;
+                height: auto !important;
+                margin-bottom: 1rem !important;
+            }
+
+            .team-card,
+            .strategy-card {
+                padding: 1.5rem;
+                transform: none !important;
+                transition: none !important;
+                width: 100%;
+                max-width: 100%;
+                box-sizing: border-box;
+                text-align: center;
+            }
+
+            /* Hide journey numbers on mobile to reduce crowding */
+            .journey-number {
+                display: none;
+            }
+
+            /* Make journey grid 2x2 on mobile for more compact layout */
+            .journey-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 1rem;
+                padding: 0 1rem;
+            }
+
+            .journey-card {
+                padding: 1.5rem 1rem;
+                text-align: center;
+            }
+
+            .journey-card h4 {
+                font-size: 0.9rem;
+                margin-bottom: 0.5rem;
+                line-height: 1.3;
+                word-wrap: break-word;
+                overflow-wrap: break-word;
+                hyphens: none;
+            }
+
+            .journey-icon {
+                width: 50px !important;
+                height: auto !important;
+            }
+
+            .journey-card p {
+                font-size: 0.8rem;
+                line-height: 1.4;
+            }
+
+            /* Make benefits grid 2 columns on mobile for more compact layout */
+            .benefits-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 1rem;
+                padding: 0 1rem;
+            }
+
+            .benefit-card {
+                padding: 1.5rem 1rem;
+            }
+
+            .benefit-card h4 {
+                font-size: 1rem;
+                margin-bottom: 0.5rem;
+            }
+
+            .benefit-card p {
+                font-size: 0.8rem;
+                line-height: 1.5;
+            }
+
+            .benefit-card img {
+                width: 45px !important;
+                height: auto !important;
+                margin-bottom: 1rem;
+            }
+
+            /* Make solutions grid 2 columns on mobile */
+            .solutions-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 1rem;
+            }
+
+            .solution-card {
+                padding: 1.5rem 1rem;
+                text-align: center;
+            }
+
+            .solution-card h4 {
+                font-size: 1rem;
+                margin-bottom: 0.5rem;
+                text-align: center;
+            }
+
+            .solution-card p {
+                font-size: 0.8rem;
+                line-height: 1.5;
+                text-align: center;
+            }
+
+            .solution-card img {
+                width: 40px !important;
+                height: auto !important;
+                margin-bottom: 1rem;
+            }
+
+            /* Image optimizations for mobile */
+            img {
+                max-width: 100%;
+                height: auto;
+                display: block;
+            }
+
+            .ai-hero-image img,
+            .sophie-img {
+                max-width: 280px;
+                margin: 0 auto;
+            }
+
+            .capability-card:hover,
+            .solution-card:hover,
+            .team-card:hover {
+                transform: translateY(-5px) !important;
+                transition: transform 0.3s ease !important;
+            }
+
+            /* Button optimizations */
+            .team-buttons,
+            .hero-cta {
+                flex-direction: column;
+                align-items: center;
+                gap: 1rem;
+            }
+
+            .team-btn,
+            .sophie-cta,
+            .reactivation-cta {
+                width: 260px;
+                text-align: center;
+                transform: none !important;
+                transition: transform 0.2s ease !important;
+            }
+
+            /* Footer mobile */
+            .footer {
+                padding: 3rem 1rem 2rem;
+            }
+
+            .footer-links {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            /* Performance: disable complex transforms */
+            * {
+                will-change: auto !important;
+            }
+
+            .service-preview-features li:hover,
+            .team-features li:hover {
+                transform: none !important;
+            }
+
+            /* Touch-friendly sizing */
+            .cta-button,
+            .team-btn,
+            .sophie-cta,
+            .consulting-cta-btn,
+            .consulting-cta-button,
+            .reactivation-cta {
+                min-height: 48px;
+                touch-action: manipulation;
+            }
+
+            /* Consulting mobile optimizations */
+            .consulting-logo,
+            .ai-hero-logo {
+                max-width: 80px;
+                height: auto;
+            }
+
+            .consulting-final-cta {
+                padding: 2rem 1rem;
+                margin: 2rem 1rem;
+            }
+
+            .consulting-final-cta h2 {
+                font-size: 1.6rem;
+                line-height: 1.3;
+            }
+
+            .consulting-final-cta p {
+                font-size: 0.95rem;
+                line-height: 1.6;
+            }
+
+            /* Reduce motion for better performance */
+            @media (prefers-reduced-motion: reduce) {
+                * {
+                    animation: none !important;
+                    transition: none !important;
+                }
+            }
+        }
+
+        /* RESPONSIVE BREAKPOINTS FOR ALL MOBILE DEVICES */
+        
+        /* Large Mobile/Small Tablet (481px - 768px) */
+        @media (max-width: 768px) and (min-width: 481px) {
+            .hero-title {
+                font-size: 2.8rem;
+            }
+            
+            .hero-subtitle {
+                font-size: 0.9rem;
+            }
+            
+            .hero-description {
+                font-size: 1.1rem;
+            }
+            
+            .service-preview-card {
+                padding: 2rem;
+            }
+            
+            .cta-button {
+                max-width: 350px;
+            }
+        }
+
+        /* Standard Mobile (376px - 480px) */
+        @media (max-width: 480px) and (min-width: 376px) {
+            .hero {
+                padding: 3rem 0 1.5rem;
+            }
+            
+            .hero-title {
+                font-size: 2.2rem;
+            }
+            
+            .hero-subtitle {
+                font-size: 0.8rem;
+                letter-spacing: 1.5px;
+            }
+            
+            .hero-description {
+                font-size: 1rem;
+            }
+            
+            .service-preview-card {
+                padding: 1.5rem;
+                margin: 0;
+            }
+            
+            .cta-button {
+                max-width: 280px;
+                padding: 0.9rem;
+            }
+        }
+
+        /* Small Mobile (320px - 375px) */
+        @media (max-width: 375px) {
+            .hero {
+                padding: 2.5rem 0 1rem;
+            }
+            
+            .hero-content {
+                padding: 0 1rem;
+            }
+            
+            .hero-title {
+                font-size: 1.8rem;
+                line-height: 1.2;
+            }
+            
+            .hero-subtitle {
+                font-size: 0.7rem;
+                letter-spacing: 1px;
+            }
+            
+            .hero-description {
+                font-size: 0.9rem;
+                margin-bottom: 1.5rem;
+            }
+            
+            .service-preview-card {
+                padding: 1.25rem;
+                margin: 0;
+            }
+            
+            .service-preview-title {
+                font-size: 1.3rem;
+            }
+            
+            .service-preview-subtitle,
+            .service-preview-description {
+                font-size: 0.85rem;
+            }
+            
+            .cta-button {
+                max-width: 260px;
+                padding: 0.8rem;
+                font-size: 0.9rem;
+            }
+        }
+
+        /* Very Small Mobile (below 320px) */
+        @media (max-width: 319px) {
+            .hero-content {
+                padding: 0 0.75rem;
+            }
+            
+            .hero-title {
+                font-size: 1.6rem;
+            }
+            
+            .hero-subtitle {
+                font-size: 0.65rem;
+            }
+            
+            .hero-description {
+                font-size: 0.85rem;
+            }
+            
+            .service-preview-card {
+                padding: 1rem;
+            }
+            
+            .cta-button {
+                max-width: 240px;
+                font-size: 0.85rem;
+            }
+        }
+
+        /* Landscape Mobile Optimization */
+        @media (max-width: 768px) and (orientation: landscape) {
+            .hero {
+                min-height: 100vh;
+                padding: 2rem 0 1rem;
+            }
+            
+            .hero-title {
+                font-size: 1.8rem;
+            }
+            
+            .service-preview {
+                margin-top: 1rem;
+            }
+            
+            .services-wrapper {
+                gap: 1rem;
+            }
+        }
+
+        /* Smooth scrolling */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: var(--primary-bg);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: var(--luxury-gradient);
+            border-radius: 5px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--accent-blue);
+        }
+
+    </style>
+
+    <!-- Retell Widget -->
+    <script
+        id="retell-widget"
+        src="https://dashboard.retellai.com/retell-widget.js"
+        type="module"
+        data-public-key="public_key_09bbd18bfb973540a625d"
+        data-agent-id="agent_81da82d9b3ff61a0d0918ae0f2"
+        data-title="Sophie • AI Assistant"
+        data-bot-name="Sophie"
+        data-color="#02bbd4"
+        data-logo-url="https://cdn.shopify.com/s/files/1/0951/6141/8067/files/LAVA_1.png?v=1753207208"
+        data-auto-open="false"
+        data-show-ai-popup="false"
+    ></script>
+
+
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '1680728342604919');
+    fbq('track', 'PageView');
+    </script>
+    <noscript><img height="1" width="1" style="display:none"
+    src="https://www.facebook.com/tr?id=1680728342604919&ev=PageView&noscript=1"
+    /></noscript>
+    <!-- End Meta Pixel Code -->
+</head>
+<body>
+    <!-- Luxury Cursor Removed for Better Performance -->
+
+    <!-- Ultra Premium Animated Background -->
+    <div class="animated-bg"></div>
+    
+    <!-- Luxury Geometric Patterns -->
+    <div class="geometric-patterns">
+        <div class="geometric-pattern"></div>
+        <div class="geometric-pattern"></div>
+        <div class="geometric-pattern"></div>
+    </div>
+
+    <!-- Enhanced Floating Particles -->
+    <div class="particles" id="particles"></div>
+
+    <!-- Scroll Progress Bar -->
+    <div class="scroll-progress" id="scrollProgress"></div>
+
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="#home" class="logo">
+                <img src="https://cdn.shopify.com/s/files/1/0951/6141/8067/files/LAVA_1.png?v=1753207208" alt="Cold Lava Logo">
+                <span>COLD LAVA</span>
+            </a>
+            <ul class="nav-menu">
+                <li><a href="#home" class="nav-link">Home</a></li>
+                <li><a href="#consulting" class="nav-link">Consulting</a></li>
+                <li><a href="#ai-agents" class="nav-link">AI Agents</a></li>
+                <li><a href="#reactivation" class="nav-link">Reactivation</a></li>
+                <li><a href="#about" class="nav-link">About</a></li>
+                <li><a href="#contact" class="nav-link">Contact</a></li>
+            </ul>
+            <a href="mailto:hello@coldlava.ai" class="contact-email">✉ hello@coldlava.ai</a>
+        </div>
+    </nav>
+
+    <!-- Ultra Premium Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <div class="hero-subtitle">ATTENTION: BUSINESS OWNERS</div>
+            <h1 class="hero-title">WE ARE COLD LAVA</h1>
+            <div class="hero-description">HUMAN LED AUTOMATION BUILT FOR BUSINESS</div>
+            <div class="hero-cta">
+                <a href="tel:+441515416933" class="cta-button cta-primary">Try a Call with Sophie</a>
+                <a href="#ai-agents" class="cta-button cta-secondary">Explore Our Solutions</a>
+                <a href="https://cal.com/coldlava/discovery-call" class="cta-button cta-primary">Book Discovery Call</a>
+            </div>
+
+            <!-- Ultra Premium Service Preview Boxes -->
+            <div class="service-preview">
+                <div class="services-wrapper">
+                    <!-- AI Consulting Preview -->
+                    <div class="service-preview-card consulting-preview-card" onclick="smoothScrollTo('#consulting')">
+                        <div>
+                            <img src="https://cdn-icons-png.flaticon.com/512/2833/2833245.png" alt="Consulting Icon" class="service-preview-icon">
+
+                            <h3 class="service-preview-title">AI Consulting & Strategy</h3>
+
+                            <p class="service-preview-subtitle">
+                                Transition to AI-powered automation without the stress, confusion, or overwhelm.
+                            </p>
+
+                            <p class="service-preview-description">
+                                We guide businesses from zero automation to intelligent AI systems in a friendly, understandable way. Whether you're just starting or stuck, we'll meet you where you are and build a roadmap tailored to your goals.
+                            </p>
+
+                            <ul class="service-preview-features">
+                                <li>🧭 AI readiness assessment & roadmap</li>
+                                <li>🤝 Friendly, jargon-free guidance</li>
+                                <li>🚀 Stress-free implementation support</li>
+                            </ul>
+                        </div>
+
+                        <span class="service-preview-cta consulting-preview-cta">
+                            👉 Start Your AI Journey
+                        </span>
+                    </div>
+
+                    <!-- AI Voice & Chat Agents Preview -->
+                    <div class="service-preview-card ai-preview-card" onclick="smoothScrollTo('#ai-agents')">
+                        <div>
+                            <img src="https://cdn-icons-png.flaticon.com/512/4712/4712027.png" alt="AI Icon" class="service-preview-icon">
+                            
+                            <h3 class="service-preview-title">AI Voice & Chat Agents</h3>
+                            
+                            <p class="service-preview-subtitle">
+                                Never miss another opportunity. Let AI handle your conversations while you focus on running your business.
+                            </p>
+                            
+                            <p class="service-preview-description">
+                                Whether it's calls, messages, lead qualification or bookings, our AI agents work instantly, 24/7, matching your brand voice and driving conversions.
+                            </p>
+                            
+                            <ul class="service-preview-features">
+                                <li>🤖 Voice & chat support tailored to you</li>
+                                <li>⚡ Handles FAQs, quotes, bookings</li>
+                                <li>📈 Works 24/7, no sick days</li>
+                            </ul>
+                        </div>
+                        
+                        <span class="service-preview-cta ai-preview-cta">
+                            👉 Meet Our AI Agents
+                        </span>
+                    </div>
+                    
+                    <!-- Database Reactivation Preview -->
+                    <div class="service-preview-card reactivation-preview-card" onclick="smoothScrollTo('#reactivation')">
+                        <div>
+                            <img src="https://cdn-icons-png.flaticon.com/512/942/942751.png" alt="Reconnect Icon" class="service-preview-icon">
+                            
+                            <h3 class="service-preview-title">Database Reactivation</h3>
+                            
+                            <p class="service-preview-subtitle">
+                                You paid for the leads. Now let them pay you back.
+                            </p>
+                            
+                            <p class="service-preview-description">
+                                We reconnect with cold, ignored or abandoned leads using human-sounding AI and proven psychology, turning lost data into booked conversations.
+                            </p>
+                            
+                            <ul class="service-preview-features">
+                                <li>⚡ No win, no fee options</li>
+                                <li>⚡ Solar, finance, wellness & more</li>
+                                <li>⚡ Converts old leads into deals</li>
+                            </ul>
+                        </div>
+                        
+                        <span class="service-preview-cta reactivation-preview-cta">
+                            👉 Revive Your Old Leads
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- AI Consulting & Strategy Section -->
+    <section id="consulting" class="consulting">
+        <!-- Consulting Hero -->
+        <div class="consulting-hero">
+            <img src="https://cdn.shopify.com/s/files/1/0951/6141/8067/files/LAVA_1.png?v=1753207208" alt="Cold Lava Logo" class="consulting-logo fade-in">
+            <h1 class="consulting-title fade-in">AI Consulting & Strategy</h1>
+            <h2 class="consulting-subtitle fade-in">Your Partner for <span>Stress-Free AI Transformation</span></h2>
+            <p class="consulting-description fade-in">
+                Moving from manual processes to AI-powered automation shouldn't feel overwhelming.
+                At Cold Lava, we guide you through every step, from assessment to implementation,
+                in a way that's clear, practical, and tailored to your business.
+            </p>
+            <a href="https://cal.com/coldlava/discovery-call" class="consulting-cta-btn fade-in">Book Your Strategy Call</a>
+        </div>
+
+        <!-- Journey Section -->
+        <div class="journey-section">
+            <div class="section-divider"></div>
+            <h2 class="section-title fade-in">How We Help You Transition to AI</h2>
+            <p class="section-subtitle fade-in">
+                We don't believe in one-size-fits-all solutions. Every business is at a different stage of their AI journey,
+                and we meet you exactly where you are, with a clear roadmap to where you want to go.
+            </p>
+
+            <div class="journey-grid">
+                <div class="journey-card fade-in">
+                    <div class="journey-number">1</div>
+                    <img src="https://cdn-icons-png.flaticon.com/512/3014/3014736.png" alt="Assessment" class="journey-icon">
+                    <h4>AI Readiness Assessment</h4>
+                    <p>We evaluate your current processes, identify opportunities, and uncover where AI can deliver the biggest impact, fast.</p>
+                </div>
+
+                <div class="journey-card fade-in">
+                    <div class="journey-number">2</div>
+                    <img src="https://cdn-icons-png.flaticon.com/512/2920/2920277.png" alt="Strategy" class="journey-icon">
+                    <h4>Custom AI Roadmap</h4>
+                    <p>Get a tailored strategy that fits your goals, budget, and timeline. No jargon, no fluff, just clear next steps.</p>
+                </div>
+
+                <div class="journey-card fade-in">
+                    <div class="journey-number">3</div>
+                    <img src="https://cdn-icons-png.flaticon.com/512/3179/3179068.png" alt="Implementation" class="journey-icon">
+                    <h4>Guided Implementation</h4>
+                    <p>We build, test, and deploy your AI systems alongside you, ensuring smooth integration with zero disruption.</p>
+                </div>
+
+                <div class="journey-card fade-in">
+                    <div class="journey-number">4</div>
+                    <img src="https://cdn-icons-png.flaticon.com/512/1055/1055645.png" alt="Optimization" class="journey-icon">
+                    <h4>Ongoing Optimization</h4>
+                    <p>AI isn't set-and-forget. We monitor, refine, and scale your systems to keep delivering results month after month.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Benefits Section -->
+        <div class="benefits-section">
+            <div class="section-divider"></div>
+            <h2 class="section-title fade-in">Why Businesses Choose Cold Lava for AI Transformation</h2>
+
+            <div class="benefits-grid">
+                <div class="benefit-card fade-in">
+                    <img src="https://cdn-icons-png.flaticon.com/512/3135/3135706.png" alt="Friendly">
+                    <h4>Jargon-Free, Human Approach</h4>
+                    <p>We explain AI in plain English and make sure you understand every decision before we make it.</p>
+                </div>
+
+                <div class="benefit-card fade-in">
+                    <img src="https://cdn-icons-png.flaticon.com/512/4149/4149678.png" alt="Tailored">
+                    <h4>Built for Your Business</h4>
+                    <p>No cookie-cutter solutions. Everything we build is designed around your workflows, team, and customers.</p>
+                </div>
+
+                <div class="benefit-card fade-in">
+                    <img src="https://cdn-icons-png.flaticon.com/512/1087/1087815.png" alt="Support">
+                    <h4>Hands-On Support</h4>
+                    <p>You're never left to figure it out alone. We're with you from strategy to scale.</p>
+                </div>
+
+                <div class="benefit-card fade-in">
+                    <img src="https://cdn-icons-png.flaticon.com/512/2920/2920349.png" alt="Results">
+                    <h4>Results-Focused Strategy</h4>
+                    <p>We don't chase trends. We focus on AI solutions that drive real business outcomes.</p>
+                </div>
+
+                <div class="benefit-card fade-in">
+                    <img src="https://cdn-icons-png.flaticon.com/512/3079/3079300.png" alt="Fast">
+                    <h4>Fast, Practical Implementation</h4>
+                    <p>Get up and running quickly with systems that work from day one, not months down the line.</p>
+                </div>
+
+                <div class="benefit-card fade-in">
+                    <img src="https://cdn-icons-png.flaticon.com/512/2910/2910791.png" alt="Scalable">
+                    <h4>Scalable Systems</h4>
+                    <p>Start small, scale smart. Our AI solutions grow with your business without needing constant rebuilds.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- CTA Section -->
+        <div class="consulting-final-cta fade-in">
+            <h2>Ready to Start Your AI Journey?</h2>
+            <p>Book a free discovery call and we'll show you exactly how AI can transform your business in plain English, with zero pressure.</p>
+            <a href="https://cal.com/coldlava/discovery-call" class="consulting-cta-button">📅 Book Your Free Strategy Call</a>
+        </div>
+    </section>
+
+    <!-- AI Agents Section -->
+    <section id="ai-agents" class="ai-agents">
+        <!-- AI Agents Hero -->
+        <div class="ai-hero">
+            <div class="ai-hero-content fade-in">
+                <img src="https://cdn.shopify.com/s/files/1/0951/6141/8067/files/LAVA_1.png?v=1753207208" alt="Cold Lava Logo" class="ai-hero-logo">
+                <h1 class="ai-hero-title">Your AI Agent</h1>
+                <h2 class="ai-hero-subtitle">Engage. Convert. Scale <span>24/7</span></h2>
+                <p class="ai-hero-description">
+                    Our AI Agents are trained to speak like your best salesperson, but they never sleep,
+                    never forget a follow-up, and never ask for a raise. Whether it's qualifying leads,
+                    booking calls, or handling customer questions, they do it all, instantly and at scale.
+                </p>
+                <a href="tel:+441515416933" class="sophie-cta">📞 Try a Call with Sophie</a>
+            </div>
+            
+            <div class="ai-hero-image fade-in">
+                <img src="https://cdn.shopify.com/s/files/1/0951/6141/8067/files/f63e1b45-8157-4920-ab3f-2833797fb6b9.png?v=1753867612" alt="AI Agent Sophie" class="sophie-img">
+            </div>
+        </div>
+
+        <!-- Capabilities Section -->
+        <div class="capabilities-section">
+            <div class="section-divider"></div>
+            <h2 class="section-title fade-in">What Your AI Sales Agents Can Do</h2>
+            <p class="section-subtitle fade-in">
+                Cold Lava AI Agents aren't just reactive. They're proactive, intelligent, and fully customised to represent your brand 24/7.
+            </p>
+
+            <div class="capabilities-grid">
+                <div class="capability-card fade-in">
+                    <img src="https://cdn-icons-png.flaticon.com/512/2815/2815428.png" alt="Calls" class="capability-icon">
+                    <h4>Handle Every Call</h4>
+                    <p>Inbound or outbound, your AI Agent answers with precision, warmth, and your brand tone.</p>
+                </div>
+
+                <div class="capability-card fade-in">
+                    <img src="https://cdn-icons-png.flaticon.com/512/1041/1041916.png" alt="Follow-up" class="capability-icon">
+                    <h4>Never Miss a Follow-Up</h4>
+                    <p>Automated reminders, check-ins, and re-engagements, delivered exactly when they're needed.</p>
+                </div>
+
+                <div class="capability-card fade-in">
+                    <img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png" alt="Customisation" class="capability-icon">
+                    <h4>Fully Customisable</h4>
+                    <p>Personalise your agent's voice, tone, knowledge base, and even their personality.</p>
+                </div>
+
+                <div class="capability-card fade-in">
+                    <img src="https://cdn-icons-png.flaticon.com/512/709/709699.png" alt="Omni-channel" class="capability-icon">
+                    <h4>Omni-Channel Messaging</h4>
+                    <p>Seamless integration across Voice, SMS, Email, WhatsApp, Social, and Web chat.</p>
+                </div>
+
+                <div class="capability-card fade-in">
+                    <img src="https://cdn-icons-png.flaticon.com/512/1828/1828817.png" alt="Reporting" class="capability-icon">
+                    <h4>Data-Driven Insights</h4>
+                    <p>Get real-time reports on performance, conversions, and customer sentiment.</p>
+                </div>
+
+                <div class="capability-card fade-in">
+                    <img src="https://cdn-icons-png.flaticon.com/512/3135/3135692.png" alt="Availability" class="capability-icon">
+                    <h4>Always Available</h4>
+                    <p>Works 7 days a week, 365 days a year, so your business never misses an opportunity.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team Integration Section -->
+    <section class="team-integration">
+        <div class="team-integration-inner">
+            <div class="team-image fade-in">
+                <img src="https://cdn.shopify.com/s/files/1/0951/6141/8067/files/ChatGPT_Image_Jul_15_2025_02_52_12_PM.png?v=1753980957" alt="AI working with team">
+            </div>
+
+            <div class="team-content fade-in">
+                <h2>Seamlessly Integrated Into Your Team</h2>
+                <p>
+                    Cold Lava AI Agents aren't here to replace people. They're here to make them unstoppable.
+                    By understanding your brand ethos, tone of voice, and ways of working, our agents blend into your team like they've been there for years.
+                    They support human colleagues, not compete with them, freeing your people to focus on creative, high-value work while AI takes care of the rest.
+                </p>
+
+                <ul class="team-features">
+                    <li>💬 Adapts instantly to your brand's tone, language, and customer culture.</li>
+                    <li>👥 Works alongside your human team to enhance productivity, not replace it.</li>
+                    <li>📌 Understands your values and priorities, making every interaction feel on-brand.</li>
+                    <li>📈 Removes admin bottlenecks so your people can focus on growth and innovation.</li>
+                    <li>🔄 Fits seamlessly into your existing workflows without disruption.</li>
+                </ul>
+
+                <div class="team-buttons">
+                    <a href="https://cal.com/coldlava/discovery-call" target="_blank" class="team-btn">Book a discovery call</a>
+                    <a href="tel:+441515416933" class="team-btn">Try a call with Sophie</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Database Reactivation Section -->
+    <section id="reactivation" class="reactivation">
+        <!-- Reactivation Hero -->
+        <div class="reactivation-hero">
+            <img src="https://cdn.shopify.com/s/files/1/0951/6141/8067/files/LAVA_1.png?v=1753207208" alt="Cold Lava Logo" class="reactivation-logo fade-in">
+            <h1 class="reactivation-title fade-in">Reignite Old Leads</h1>
+            <h2 class="reactivation-subtitle fade-in">Turn Dead Data into Live Sales</h2>
+            <p class="reactivation-description fade-in">
+                Cold Lava's AI-powered reactivation systems bring your forgotten leads back to life.<br />
+                We automate conversations, qualify intent, and drive £10K–£100K+ in extra sales from data you'd written off.
+            </p>
+            <a href="https://cal.com/coldlava/discovery-call" class="reactivation-cta fade-in">Get Started</a>
+            <div class="fade-in">
+                <img src="dbr-dashboard.png" alt="DBR Dashboard" class="reactivation-image">
+            </div>
+        </div>
+
+        <!-- Solutions Section -->
+        <div class="solutions-section">
+            <div class="section-divider"></div>
+            <h2 class="section-title fade-in">AI-Powered Client Re-Engagement That Works</h2>
+            <p class="section-subtitle fade-in">
+                Our Database Reactivation isn't just about chasing old leads. It's about building a predictable,
+                always-on revenue channel. We connect, nurture, and convert, all while you focus on running your business.
+            </p>
+
+            <div class="solutions-grid">
+                <div class="solution-card fade-in">
+                    <img src="https://cdn-icons-png.flaticon.com/512/1055/1055646.png" alt="Growth">
+                    <h4>Predictable Sales Growth</h4>
+                    <p>Transform idle contacts into a steady, measurable stream of new business without increasing ad spend.</p>
+                </div>
+
+                <div class="solution-card fade-in">
+                    <img src="https://cdn-icons-png.flaticon.com/512/2920/2920239.png" alt="Tailored">
+                    <h4>Tailored to Your Market</h4>
+                    <p>Industry-specific messaging & sequences crafted to resonate with your audience and maximise conversions.</p>
+                </div>
+
+                <div class="solution-card fade-in">
+                    <img src="https://cdn-icons-png.flaticon.com/512/2910/2910705.png" alt="Automated">
+                    <h4>24/7 Automated Outreach</h4>
+                    <p>Your campaigns never sleep. AI nurtures leads continuously and strikes at the moment they're ready.</p>
+                </div>
+
+                <div class="solution-card fade-in">
+                    <img src="https://cdn-icons-png.flaticon.com/512/4315/4315609.png" alt="Data">
+                    <h4>Data-Driven Insights</h4>
+                    <p>Track every touchpoint with crystal-clear reporting, so you know exactly what's driving sales.</p>
+                </div>
+
+                <div class="solution-card fade-in">
+                    <img src="https://cdn-icons-png.flaticon.com/512/2910/2910783.png" alt="Human AI">
+                    <h4>Human-Sounding AI</h4>
+                    <p>Conversations that feel authentic, empathetic, and brand-true, not robotic or generic.</p>
+                </div>
+
+                <div class="solution-card fade-in">
+                    <img src="https://cdn-icons-png.flaticon.com/512/3876/3876317.png" alt="ROI">
+                    <h4>ROI-Only Pricing</h4>
+                    <p>No upfront risk. You only pay when our system generates qualified sales opportunities.</p>
+                </div>
+            </div>
+
+            <div class="solutions-cta">
+                <a href="https://cal.com/coldlava/discovery-call">🚀 Start Re-Engaging Clients</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="about-container">
+            <div class="section-divider"></div>
+            <h2 class="section-title fade-in">The Strategy Behind the System</h2>
+            
+            <div class="about-intro fade-in">
+                <p>
+                    Cold Lava was built by two operators who've scaled businesses from the ground up.
+                    <strong>Jacob</strong>, with deep expertise in sales psychology, and
+                    <strong>Oliver</strong>, with a background in hospitality operations, marketing and an insatiable hunger for knowledge.
+                </p>
+                <br>
+                <p>
+                    We don't ship templates. We build bespoke systems designed around how your business actually works—and how your customers actually buy.
+                </p>
+            </div>
+            
+            <div class="team-grid">
+                <!-- Jacob Card -->
+                <div class="team-card jacob-card fade-in">
+                    <h3>Jacob – Sales Psychology Lead</h3>
+                    <p>
+                        Brings a deep command of sales psychology and buyer behaviour, with a track record of transforming cold leads into engaged, high-converting conversations. Known for building systems that mirror how real people sell—then scaling them across teams and industries.
+                    </p>
+                </div>
+                
+                <!-- Oliver Card -->
+                <div class="team-card oliver-card fade-in">
+                    <h3>Oliver – Systems & CX Lead</h3>
+                    <p>
+                        Senior background in hospitality operations and client experience. Focused on building scalable workflows, seamless automations, and customer journeys that feel natural—while driving conversion at every step.
+                    </p>
+                </div>
+            </div>
+            
+            <!-- Strategy Card -->
+            <div class="strategy-card fade-in">
+                <h2>Why the Cold Lava Strategy Wins</h2>
+                <p>
+                    AI is just the engine. What makes Cold Lava powerful is the strategic thinking that drives it.
+                </p>
+                <p>
+                    Every system we build is rooted in real-world experience and tested sales psychology—designed not just to automate, but to perform. We don't chase trends or build for vanity metrics. We replicate the behaviour of top performers, then scale that logic across your pipeline.
+                </p>
+                <p>
+                    The result? More qualified conversations, faster conversions, and a system that grows your business—even when you're not working.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contact" class="footer">
+        <div class="footer-logo">
+            <img src="https://cdn.shopify.com/s/files/1/0951/6141/8067/files/LAVA_1.png?v=1753207208" alt="Cold Lava Logo">
+            <div class="footer-tagline">AI Sales & Reactivation That Works 24/7</div>
+        </div>
+        
+        <div class="footer-links">
+            <a href="#home" class="footer-nav-link">Home</a>
+            <a href="#consulting" class="footer-nav-link">Consulting</a>
+            <a href="#ai-agents" class="footer-nav-link">AI Agents</a>
+            <a href="#reactivation" class="footer-nav-link">Reactivation</a>
+            <a href="#about" class="footer-nav-link">About</a>
+        </div>
+
+        <div class="footer-contact">
+            Cold Lava Ltd · Liverpool, United Kingdom<br>
+            <a href="mailto:hello@coldlava.ai">hello@coldlava.ai</a>
+        </div>
+        
+        <div class="footer-cta">
+            <a href="https://cal.com/coldlava/discovery-call">
+                📅 Book a Discovery Call
+            </a>
+        </div>
+        
+        <div class="footer-legal">
+            <p>&copy; <span id="year"></span> Cold Lava AI. All rights reserved.</p>
+            <p>Human-led automation. Real results.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Detection and Performance Optimization
+        const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) || window.innerWidth <= 768;
+        const isLowPowerDevice = navigator.hardwareConcurrency && navigator.hardwareConcurrency < 4;
+        const shouldDisableAnimations = isMobile || isLowPowerDevice;
+
+        // Dynamic year for footer
+        document.getElementById('year').textContent = new Date().getFullYear();
+
+        // Luxury Cursor Removed - Better Performance
+
+        // Mouse Trail Effect (Desktop Only)
+        if (!isMobile) {
+            let trails = [];
+            document.addEventListener('mousemove', (e) => {
+                const trail = document.createElement('div');
+                trail.className = 'mouse-trail';
+                trail.style.left = e.clientX + 'px';
+                trail.style.top = e.clientY + 'px';
+                document.body.appendChild(trail);
+                
+                trails.push(trail);
+                
+                setTimeout(() => {
+                    trail.remove();
+                    trails = trails.filter(t => t !== trail);
+                }, 500);
+            });
+        }
+
+        // Enhanced floating particles (Desktop Only or Reduced on Mobile)
+        function createParticles() {
+            const particlesContainer = document.getElementById('particles');
+            if (!particlesContainer) return;
+            
+            const particleCount = isMobile ? 20 : 120; // Much fewer on mobile
+            for (let i = 0; i < particleCount; i++) {
+                const particle = document.createElement('div');
+                particle.className = 'particle';
+                particle.style.left = Math.random() * 100 + '%';
+                particle.style.animationDelay = Math.random() * 25 + 's';
+                particle.style.animationDuration = (25 + Math.random() * 20) + 's';
+                particlesContainer.appendChild(particle);
+            }
+        }
+
+        // Smooth scroll function
+        function smoothScrollTo(target) {
+            const targetElement = document.querySelector(target);
+            if (targetElement) {
+                const offsetTop = targetElement.offsetTop - 80;
+                window.scrollTo({
+                    top: offsetTop,
+                    behavior: 'smooth'
+                });
+            }
+        }
+
+        // Enhanced scroll progress bar
+        function updateScrollProgress() {
+            const scrollTop = window.pageYOffset;
+            const docHeight = document.body.scrollHeight - window.innerHeight;
+            const scrollPercent = (scrollTop / docHeight) * 100;
+            document.getElementById('scrollProgress').style.width = scrollPercent + '%';
+        }
+
+        // Ultra-Premium parallax effect
+        function handleParallax() {
+            const scrolled = window.pageYOffset;
+            const bg = document.querySelector('.animated-bg');
+            const particles = document.querySelector('.particles');
+            const geometricPatterns = document.querySelector('.geometric-patterns');
+            
+            if (bg) {
+                bg.style.transform = `translateY(${scrolled * 0.15}px) scale(${1 + scrolled * 0.0001})`;
+            }
+            if (particles) {
+                particles.style.transform = `translateY(${scrolled * 0.08}px) rotate(${scrolled * 0.01}deg)`;
+            }
+            if (geometricPatterns) {
+                geometricPatterns.style.transform = `translateY(${scrolled * 0.05}px)`;
+            }
+
+            // Advanced parallax for hero elements
+            const heroElements = document.querySelectorAll('.hero-content > *');
+            heroElements.forEach((el, index) => {
+                const speed = 0.03 + (index * 0.015);
+                const rotation = Math.sin(scrolled * 0.001) * 0.5;
+                el.style.transform = `translateY(${scrolled * speed}px) rotate(${rotation}deg)`;
+            });
+        }
+
+        // Enhanced scroll animations with stagger (Optimized for Mobile)
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry, index) => {
+                if (entry.isIntersecting) {
+                    if (shouldDisableAnimations) {
+                        // Instant show on mobile for better performance
+                        entry.target.classList.add('visible');
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'none';
+                    } else {
+                        // Staggered animation on desktop
+                        setTimeout(() => {
+                            entry.target.classList.add('visible');
+                        }, index * 150);
+                    }
+                }
+            });
+        }, observerOptions);
+
+        // Observe all fade-in elements
+        document.querySelectorAll('.fade-in').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Enhanced navbar scroll effects
+        function handleNavbarScroll() {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 100) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        }
+
+        // Enhanced smooth scrolling for navigation links
+        document.querySelectorAll('.nav-link, .logo, .footer-nav-link').forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                const targetId = link.getAttribute('href');
+                smoothScrollTo(targetId);
+            });
+        });
+
+        // Ultra-Premium hover effects for cards (Desktop Only)
+        function addCardEffects() {
+            if (isMobile) return; // Skip complex effects on mobile
+            
+            document.querySelectorAll('.capability-card, .solution-card, .team-card, .service-preview-card').forEach(card => {
+                card.addEventListener('mousemove', (e) => {
+                    const rect = card.getBoundingClientRect();
+                    const x = e.clientX - rect.left;
+                    const y = e.clientY - rect.top;
+                    const centerX = rect.width / 2;
+                    const centerY = rect.height / 2;
+                    const rotateX = (y - centerY) / 20;
+                    const rotateY = (centerX - x) / 20;
+                    
+                    card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateZ(30px) scale(1.02)`;
+                });
+                
+                card.addEventListener('mouseleave', () => {
+                    card.style.transform = '';
+                });
+            });
+        }
+
+        // Ultra-Magnetic effect for CTA buttons (Desktop Only)
+        function addMagneticEffect() {
+            if (isMobile) return; // Skip magnetic effects on mobile
+            
+            document.querySelectorAll('.cta-button, .sophie-cta, .reactivation-cta, .team-btn, .service-preview-cta').forEach(btn => {
+                btn.addEventListener('mousemove', (e) => {
+                    const rect = btn.getBoundingClientRect();
+                    const x = e.clientX - rect.left - rect.width / 2;
+                    const y = e.clientY - rect.top - rect.height / 2;
+                    
+                    btn.style.transform = `translate(${x * 0.15}px, ${y * 0.15}px) scale(1.08) rotate(${x * 0.02}deg)`;
+                });
+                
+                btn.addEventListener('mouseleave', () => {
+                    btn.style.transform = '';
+                });
+            });
+        }
+
+        // Interactive background elements (Desktop Only)
+        function addInteractiveBackground() {
+            if (isMobile) return; // Skip interactive background on mobile
+            
+            document.addEventListener('mousemove', (e) => {
+                const bg = document.querySelector('.animated-bg');
+                if (bg) {
+                    const x = (e.clientX / window.innerWidth) * 100;
+                    const y = (e.clientY / window.innerHeight) * 100;
+                    
+                    bg.style.backgroundPosition = `${x}% ${y}%`;
+                }
+            });
+        }
+
+        // Event listeners (Optimized for Mobile)
+        window.addEventListener('scroll', () => {
+            updateScrollProgress();
+            handleNavbarScroll();
+            if (!isMobile) {
+                handleParallax(); // Skip parallax on mobile for better performance
+            }
+        });
+
+        // Initialize on page load (Mobile Optimized)
+        window.addEventListener('load', () => {
+            // Only create particles on desktop or reduce on mobile
+            if (!shouldDisableAnimations) {
+                createParticles();
+            }
+            
+            addCardEffects();
+            addMagneticEffect(); 
+            addInteractiveBackground();
+            
+            // Mobile: Show key elements immediately, Desktop: Staggered animation
+            setTimeout(() => {
+                if (shouldDisableAnimations) {
+                    // Show only key content elements immediately on mobile
+                    const mobileElements = document.querySelectorAll('.hero-content, .hero-title, .hero-subtitle, .hero-description, .hero-cta, .service-preview, .service-preview-card, .fade-in');
+                    mobileElements.forEach(el => {
+                        if (el) {
+                            el.style.opacity = '1';
+                            el.style.transform = 'none';
+                            el.style.animation = 'none';
+                            el.classList.add('visible');
+                        }
+                    });
+                } else {
+                    // Staggered on desktop
+                    document.querySelectorAll('.fade-in').forEach((el, index) => {
+                        setTimeout(() => {
+                            if (el.getBoundingClientRect().top < window.innerHeight) {
+                                el.classList.add('visible');
+                            }
+                        }, index * 100);
+                    });
+                }
+            }, isMobile ? 100 : 500);
+        });
+
+        // Performance optimization with throttling (Desktop Only)
+        if (!isMobile) {
+            let ticking = false;
+            function requestTick() {
+                if (!ticking) {
+                    requestAnimationFrame(() => {
+                        handleParallax();
+                        ticking = false;
+                    });
+                    ticking = true;
+                }
+            }
+            window.addEventListener('scroll', requestTick);
+        }
+
+        // Add glitch effect on logo hover (Desktop Only)
+        if (!isMobile) {
+            document.querySelector('.logo').addEventListener('mouseenter', function() {
+                this.style.animation = 'glitch 0.3s ease-in-out';
+            });
+
+            document.querySelector('.logo').addEventListener('animationend', function() {
+                this.style.animation = '';
+            });
+        }
+
+        // Add CSS for glitch animation
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes glitch {
+                0% { transform: translate(0); }
+                20% { transform: translate(-2px, 2px); }
+                40% { transform: translate(-2px, -2px); }
+                60% { transform: translate(2px, 2px); }
+                80% { transform: translate(2px, -2px); }
+                100% { transform: translate(0); }
+            }
+        `;
+        document.head.appendChild(style);
+    </script>
+
+
+</body>
+</html>
+
+</body>
+</html>
